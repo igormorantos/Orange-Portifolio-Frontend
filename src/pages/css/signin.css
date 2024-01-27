@@ -1,0 +1,22 @@
+.container__item--image{
+    background-image: url(/src/assets/img_login.png);
+    background-position: 0 40%;
+}
+
+.title__login{
+    font-size: 1.5em;
+    color:#515255;
+}
+
+#form-api{
+    height: 280px;
+    position: relative;
+}
+
+#form-api a{
+    position: absolute;
+    left: 0;
+    top: 90%;
+    text-decoration: none;
+    color: #818388;
+}

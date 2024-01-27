@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/responsividade-cad.css">
+    <!--JavaScript-->
+    <script src="js/scripts.js" defer></script>
+    <script src="js/validacoes.js" defer></script>
+
+    <!--Ícones-->
+    <script src="https://kit.fontawesome.com/0f251f1c56.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main class="container">
+        <div class="container__item container__item--image"></div>
+        <div class="container__item container__item--form">
+            <section>
+                <div id="valid-cadastro">
+                    <i class="far fa-check-circle"></i>
+                    <p>Cadastro feito com sucesso</p>
+                </div>
+
+                <p>Cadastre-se</p>
+                <form id="form-api">
+                    <div class="div__input">
+                        <div class="label-float label-float--input">
+                            <input type="text" id="name" required />
+                            <label for="name">Nome *</label>
+                        </div>
+
+                        <div class="label-float label-float--input">
+                            <input type="text" id="lastname" required />
+                            <label for="lastname">Sobrenome *</label>
+                        </div>
+                    </div>
+
+                    <div class="label-float">
+                        <input type="email" id="email" required autocomplete="username" />
+                        <label for="email">Email address</label>
+                    </div>
+
+                    <div class="label-float">
+                        <input type="password" id="password" required autocomplete="current-password" />
+                        <label for="password">Password</label>
+                        <button id="togglePassword" type="button"><i class="fas fa-eye-slash" id="eyeIcon"></i></button>
+                    </div>
+
+                    <input type="submit" id="cadastrar" value="cadastrar"/>
+                </form>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
