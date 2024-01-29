@@ -1,7 +1,7 @@
 // POST
 const form = document.getElementById('form-api');
 
-const url = 'http://44.211.238.104:3000/add'; 
+const url = 'https://orange-portifolio-api-a03fcc01e1a7.herokuapp.com/add'; 
 
 form.addEventListener('submit', evento => {
     evento.preventDefault();
@@ -41,7 +41,7 @@ form.addEventListener('submit', evento => {
             .then(data => {
                 validCadastro.style.display = "flex";
                 setTimeout(function () {
-                    window.location = 'usuarios.html';
+                    window.location = 'signin.html';
                 }, 1000);
             })
             .catch(error => {

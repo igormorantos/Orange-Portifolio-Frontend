@@ -2,7 +2,7 @@ const form = document.getElementById('form-api');
 const massegeValid = document.querySelector('#valid-cadastro');
 const massege = massegeValid.querySelector('p');
 
-const url = 'http://44.211.238.104:3000/login';
+const url = 'https://orange-portifolio-api-a03fcc01e1a7.herokuapp.com/login';
 
 // função para o login
 form.addEventListener('submit', evento => {
