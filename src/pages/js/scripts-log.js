@@ -10,17 +10,17 @@ form.addEventListener('submit', evento => {
 
     const email = document.getElementById('email-adress').value;
     const password = document.getElementById('user-password').value;
-/*
+
     const fullName = document.getElementById('fullName').value;
     const sub = document.getElementById('sub').value;
     const family_name = document.getElementById('given_name').value;
     const gEmail = document.getElementById('given_name').value;
     const picture = document.getElementById('given_name').value;
-    const given_Name = document.getElementById('given_name').value;*/
+    const given_Name = document.getElementById('given_name').value;
 
     const emailStandard = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    //if (emailStandard.test(email) && password.length >= 8) {
+    if (emailStandard.test(email) && password.length >= 8) {
         
         const valuesInputs = {
             email: email,
@@ -51,32 +51,14 @@ form.addEventListener('submit', evento => {
             massegeValid.style.backgroundColor = '#ee483ca5';
             massege.textContent = error;
         });
-/*}
-    else {
-        massegeValid.style.display = "flex";
-        massegeValid.style.backgroundColor = '#ee483ca5';
-        massege.textContent = "Informe email e senha válidos.";
-
-        // Aguarda 1s para recarregar a página
-        setTimeout(function () {
-            location.reload();
-        }, 1000); // 1s
-        return false; // Não envia o form
-    }*/
-});
-
-
-
-
-    /*else if(fullName && sub && gEmail)
-    {
+    } else if (fullName && sub && gEmail){
         firstName = given_Name
         lastName = family_name
         password = sub
         email = gEmail
 
         fetch(url, {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -99,4 +81,16 @@ form.addEventListener('submit', evento => {
             massegeValid.style.backgroundColor = '#ee483ca5';
             massege.textContent = "Erro na autenticação. Verifique suas credenciais.";
         });
-    }*/
+    }
+    else {
+        massegeValid.style.display = "flex";
+        massegeValid.style.backgroundColor = '#ee483ca5';
+        massege.textContent = "Informe email e senha válidos.";
+
+        // Aguarda 1s para recarregar a página
+        setTimeout(function () {
+            location.reload();
+        }, 1000); // 1s
+        return false; // Não envia o form
+        }
+});
