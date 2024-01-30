@@ -14,7 +14,14 @@ function handleCredentialResponse(response){
         family_name.textContent = decodedToken.family_name
         email.textContent = decodedToken.email
         picture.setAttribute("src", decodedToken.picture)
-        
+
+        dataUser = {
+          firstName: decodedToken.given_name,
+          lastName: decodedToken.family_name,
+          email:decodedToken.email,
+          password: decodedToken.sub
+        }
+        sendDataToAPI(dataUser)
     } catch (error) {
         console.error('Erro ao decodificar o token:', error);
     }
