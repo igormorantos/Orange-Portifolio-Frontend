@@ -2,7 +2,7 @@ const form = document.getElementById('form-api');
 const massegeValid = document.querySelector('#valid-cadastro');
 const massege = massegeValid.querySelector('p');
 
-const url = 'http://localhost:3000/login';
+const url = 'https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/login';
 
 // função para o login
 form.addEventListener('submit', evento => {
@@ -24,8 +24,7 @@ form.addEventListener('submit', evento => {
         
         const valuesInputs = {
             email: email,
-            password: password,
-            isGoogle: false
+            password: password
         }
         
         fetch(url, {
