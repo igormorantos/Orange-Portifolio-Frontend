@@ -2,7 +2,7 @@ const form = document.getElementById('form-api');
 const massegeValid = document.querySelector('#valid-cadastro');
 const massege = massegeValid.querySelector('p');
 
-const url = 'https://orange-portifolio-api-a03fcc01e1a7.herokuapp.com/login';
+const url = 'http://localhost:3000/login';
 
 // função para o login
 form.addEventListener('submit', evento => {
@@ -24,7 +24,8 @@ form.addEventListener('submit', evento => {
         
         const valuesInputs = {
             email: email,
-            password: password
+            password: password,
+            isGoogle: false
         }
         
         fetch(url, {
@@ -51,37 +52,7 @@ form.addEventListener('submit', evento => {
             massegeValid.style.backgroundColor = '#ee483ca5';
             massege.textContent = error;
         });
-    } else if (fullName && sub && gEmail){
-        firstName = given_Name
-        lastName = family_name
-        password = sub
-        email = gEmail
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email, password }),
-        })
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            } else {
-                
-            }
-        })
-        .then(data => {
-            // se autenticação for bem-sucedida, redireciona para usuarios.html
-            window.location = 'usuarios.html';
-        })
-        .catch(error => {
-            // exibe a mensagem de erro em caso de falha na autenticação
-            massegeValid.style.display = "flex";
-            massegeValid.style.backgroundColor = '#ee483ca5';
-            massege.textContent = "Erro na autenticação. Verifique suas credenciais.";
-        });
-    }
+        }
     else {
         massegeValid.style.display = "flex";
         massegeValid.style.backgroundColor = '#ee483ca5';
