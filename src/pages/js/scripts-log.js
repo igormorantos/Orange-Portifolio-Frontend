@@ -11,12 +11,7 @@ form.addEventListener('submit', evento => {
     const email = document.getElementById('email-adress').value;
     const password = document.getElementById('user-password').value;
 
-    const fullName = document.getElementById('fullName').value;
-    const sub = document.getElementById('sub').value;
-    const family_name = document.getElementById('given_name').value;
-    const gEmail = document.getElementById('given_name').value;
-    const picture = document.getElementById('given_name').value;
-    const given_Name = document.getElementById('given_name').value;
+
 
     const emailStandard = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -64,3 +59,37 @@ form.addEventListener('submit', evento => {
         return false; // Não envia o form
         }
 });
+
+    const sub = document.getElementById('sub').textContent;
+    const gEmail = document.getElementById('email').textContent;
+
+
+  async function sendDataToAPI(dataUser) {
+    try{
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dataUser),
+    })
+    .then(res => {
+      if (res.ok) {
+       const response = res.json();
+        return response
+        } else {
+            //logica pra cadastrar porque não existe no banco
+            console.log("perdeu no console")
+            return res.json({mesnagem: 'deu ruim'})
+        }
+    })
+    .catch(error => {
+        massegeValid.style.display = "flex";
+        massegeValid.style.backgroundColor = '#ee483ca5';
+        massege.textContent = error;
+    });
+  }
+  catch{
+
+  }
+}
