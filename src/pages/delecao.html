@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deleção</title>
+
+    <!--Ícones-->
+    <script src="https://kit.fontawesome.com/0f251f1c56.js" crossorigin="anonymous"></script>
+
+    <!--Link js-->
+    <script src="/src/pages/js/delecao.js" defer></script>
+    <link rel="stylesheet" href="/src/pages/css/delecao.css">
+</head>
+
+<body class="change__color">
+    <!--CóDIGO TESTE-->
+    <div class="card">
+        <div class="card__item" id="card1">
+            <div class="btn__options">
+                <button class="btn__options--btn" onclick="showOptions('options1')">
+                    <i class="fas fa-pen"></i>
+                </button>
+
+                <div class="options" id="options1">
+                    <button class="btn__option" id="editar">Editar</button>
+                    <button class="btn__option" id="excluir" onclick="confirmDelete('card1')">Excluir</button>
+                </div>
+            </div>
+
+            <h1>Card item</h1>
+            <p>Teste teste teste</p>
+
+            <div class="confirm-delete" id="confirmDeletecard1">
+                <p class="confirm-delete--title">Deseja excluir?</p>
+                <p class="confirm-delete--text">Se você prosseguir irá excluir o projeto do seu portfólio</p>
+                <button class="btn-del-edit color__excluir" onclick="deleteCard('deleteSuccess1')">Excluir</button>
+                <button class="btn-del-edit" onclick="cancelDelete('card1')">Cancelar</button>
+            </div>
+        
+            <div class="confirm-delete deleteSuccess" id="deleteSuccess1">
+                <p>Projeto deletado com sucesso!</p>
+                <i class="fas fa-check-circle"></i>
+                <button class="btn-fechar" id="btn-fechar">Voltar para projetos</button>
+            </div>
+        </div>
+
+        <div class="card__item" id="card2">
+            <div class="btn__options">
+                <button class="btn__options--btn" onclick="showOptions('options2')">
+                    <i class="fas fa-pen"></i>
+                </button>
+                <div class="options" id="options2">
+                    <button class="btn__option" id="editar">Editar</button>
+                    <button class="btn__option" id="excluir" onclick="confirmDelete('card2')">Excluir</button>
+                </div>
+            </div>
+
+            <h1>Card item</h1>
+            <p>Veja aqui</p>
+
+            <div class="confirm-delete" id="confirmDeletecard2">
+                <p class="confirm-delete--title">Deseja excluir?</p>
+                <p class="confirm-delete--text">Se você prosseguir irá excluir o projeto do seu portfólio</p>
+                <button class="btn-del-edit color__excluir" onclick="deleteCard('deleteSuccess2', 'confirmDeletecard2')">Excluir</button>
+                <button class="btn-del-edit" onclick="cancelDelete('card2')">Cancelar</button>
+            </div>
+        
+            <div class="confirm-delete deleteSuccess" id="deleteSuccess2">
+                <p>Projeto deletado com sucesso!</p>
+                <i class="fas fa-check-circle"></i>
+                <button class="btn-fechar" id="btn-fechar" onclick="fecharSucess('confirmDeletecard2', 'deleteSuccess2')">Voltar para projetos</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
