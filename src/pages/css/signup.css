@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    font-family: 'Roboto';
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.container__item--image {
+    width: 40%;
+    height: 100%;
+    background-image: url(/src/assets/img_cadastro.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 90%;
+}
+
+.container__item--form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*mensagem de sucesso ao enviar form*/
+#valid-cadastro {
+    display: none;
+    margin-bottom: 12%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #2E7D32;
+    border-radius: 5px;
+    color: #fff;
+    height: 50px;
+    width: 300px;
+}
+
+#valid-cadastro i {
+    font-size: 1.5em;
+}
+
+#valid-cadastro p {
+    margin-top: 5px;
+    font-size: 1em;
+    color: #fff;
+}
+
+section p {
+    font-size: 3em;
+    color: #222244;
+    margin-bottom: 2%;
+}
+
+form {
+    width: 80%;
+}
+
+form input {
+    outline: none;
+    width: 100%;
+    height: 48px;
+    margin: 1% 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.div__input {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.div__input div {
+    width: 49%;
+}
+
+.label-float--input label {
+    width: 100%;
+}
+
+/*efeito da label no input*/
+.label-float {
+    width: 100%;
+    position: relative;
+    padding-top: 13px;
+}
+
+.label-float input {
+    color: #222244;
+}
+
+.label-float label {
+    color: #515255;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 30px;
+    padding-left: 3%;
+    transition: all .3s ease-in;
+}
+
+.label-float input:focus+label,
+.label-float input:valid+label {
+    font-size: 13px;
+    margin-top: 2%;
+    margin-left: 1%;
+    background-color: #ffffff;
+    width: auto;
+    padding-right: 3%;
+}
+
+/*botão de exibir e esconder senha*/
+#togglePassword {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 15px;
+    /* Ajuste conforme necessário para a posição desejada */
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    text-transform: uppercase;
+    background-color: #FF5522;
+    color: #FFF;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 5px 5px -3px #6c6b6b;
+    height: 40px;
+}
+
+input[type="submit"]:hover {
+    transform: scale(1.004);
+    background-color: #FF5530;
+    cursor: pointer;
+}
+
+
+

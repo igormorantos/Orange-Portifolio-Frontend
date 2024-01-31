@@ -1,0 +1,26 @@
+@media screen and (max-width: 660px) {
+    .container {
+        justify-content: center;
+    }
+
+    .container__item--image {
+        display: none;
+    }
+
+    .container__item--form {
+        width: 100%;
+    }
+
+    .div__input {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .div__input div {
+        width: 100%;
+    }
+
+    section p{
+        font-size: 2em;
+    }
+}

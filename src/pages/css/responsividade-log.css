@@ -1,0 +1,14 @@
+@media screen and (max-width: 660px) {
+    .title__login--entre{
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .title__login{
+        font-size: 1em;
+    }
+
+    #form-api a{
+        top: 80%;
+    }
+}
