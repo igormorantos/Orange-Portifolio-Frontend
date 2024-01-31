@@ -73,7 +73,7 @@ form.addEventListener('submit', evento => {
     
     if (response.ok) {
        const data = await response.json();
-       //window.location = 'usuarios.html';
+       window.location = 'src/usuarios.html';
        console.log(data, "Login bem sucedido")
        return data
     } else {
@@ -102,6 +102,7 @@ async function sendDataToOtherRoute(dataUser) {
     if (response.ok) {
        const data = await response.json(); 
        console.log(data.user[0], "cadastro feito com sucesso")
+       window.location = 'src/usuarios.html';
        return data.user[0]
     } else {
         
