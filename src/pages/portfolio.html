@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/nav-portfolio.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/adicionar-projeto.css">
+    <link rel="stylesheet" href="css/resp-modal.css">
+    <!--Ícones-->
+    <script src="https://kit.fontawesome.com/0f251f1c56.js" crossorigin="anonymous"></script>
+    <!--JS-->
+    <script src="../pages/js/modal.js" defer></script>
+    <script src="../pages/js/add-project.js" defer></script>
+    <script src="../pages/js/upload-image.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <nav class="navbar navbar-menu">
+            <div class="navbar__content--um">
+                <button class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <img src="../assets/Logo orange.png" alt="Logo Orange Portfólio">
+
+                <ul class="lista">
+                    <li><a href="#">Meus projetos</a></li>
+                    <li><a href="#">Descobrir</a></li>
+                    <li class="configuracoes"><a href="#">Configurações</a></li>
+                </ul>
+
+            </div>
+
+            <div class="navbar__content--dois">
+                <img src="../assets/Profile-Image.png" alt="Foto de Perfil do Usuário">
+                <div id="openNotifications"><i class="fas fa-bell"></i></div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <section class="info">
+                <div class="info__user--foto">
+                    <img src="../assets/Profile-Image.png" alt="Foto de Perfil do Usuário">
+                </div>
+
+                <div class="info__user--informacoes">
+                    <p id="name">Camila Santos</p>
+                    <p id="nationality">Brasil</p>
+
+                    <button class="btn__add-project">Adicionar Projeto</button>
+                </div>
+            </section>
+
+            <section class="container__projects">
+                <div class="find">
+                    <p>Meus Projetos</p>
+                    <input type="text" placeholder="Buscar tags">
+                </div>
+
+                <div class="projects">
+                    <!-- <button class="card__project" id="add-project">
+                        <img src="../assets/collections.png" alt="icone de arquivos">
+                        <div class="titles">
+                            <p>Adicione seu primeiro projeto</p>
+                            <p class="titles__title">Compartilhe seu talento com milhares de pessoas</p>
+                        </div>
+                    </button> -->
+                </div>
+
+                <div class="container__add-project" id="container__add-project">
+                    <p class="titles--title">Adicionar Projeto</p>
+
+                    <form class="form-container">
+                        <div class="container__img">
+                            <p class="text">Selecione o conteúdo que você deseja fazer upload</p>
+                            <div class="input-container">
+                                <input type="file" name="image" id="imageInput" accept="image/*">
+                                <div class="additional-content" >
+                                    <img src="../assets/collections.png" class="image" id="previewImage" alt="Preview Image">
+                                    <div class="titles" id="titles">
+                                        <p>Compartilhe seu talento com milhares de pessoas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="container__input">
+                            <input type="text" placeholder="Titulo">
+                            <input type="text" placeholder="Tags">
+                            <input type="text" placeholder="Links">
+                            <textarea name="description" id="description" cols="30" rows="10"
+                                placeholder="Descrição"></textarea>
+                        </div>
+                    </form>
+
+                    <a href="#" class="view">Visualizar publicação</a>
+
+                    <div class="buttons">
+                        <input type="submit" value="Salvar" onclick="addProjeto()">
+                        <button id="cancel">Cancelar</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+</body>
+
+</html>
