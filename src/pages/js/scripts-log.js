@@ -3,6 +3,7 @@ const massegeValid = document.querySelector('#valid-cadastro');
 const massege = massegeValid.querySelector('p');
 
 const url = 'https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/login';
+const url2 = 'https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/add';
 
 // função para o login
 form.addEventListener('submit', evento => {
@@ -72,12 +73,39 @@ form.addEventListener('submit', evento => {
     
     if (response.ok) {
        const data = await response.json();
-       window.location = 'usuarios.html';
+       //window.location = 'usuarios.html';
+       console.log(data, "Login bem sucedido")
        return data
     } else {
-        //logica pra cadastrar quem a conta google ainda não existe noso banco
-        console.log("perdeu no console")
-        return res.json({mesnagem: 'deu ruim'})
+        console.log('Primeiro Acesso do Usuario')
+        sendDataToOtherRoute(dataUser)
+        return response.json({data, mensagem: 'Primeiro Acesso do Usuario'})
+    }
+  }
+  catch(error){
+   /* massegeValid.style.display = "flex";
+    massegeValid.style.backgroundColor = '#ee483ca5';
+    massege.textContent = error;*/ //codigo esta quebrando quando chega no cadastro
+  }
+}
+
+async function sendDataToOtherRoute(dataUser) {
+    try{
+    const response = await fetch(url2, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dataUser),
+    })
+    
+    if (response.ok) {
+       const data = await response.json(); 
+       console.log(data.user[0], "cadastro feito com sucesso")
+       return data.user[0]
+    } else {
+        
+        return response.json({mesnagem: "erro de cadastro"})
     }
   }
   catch(error){
@@ -86,3 +114,5 @@ form.addEventListener('submit', evento => {
     massege.textContent = error;
   }
 }
+
+
