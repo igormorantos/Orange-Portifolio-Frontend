@@ -39,7 +39,7 @@ form.addEventListener('submit', evento => {
         })
         .then(data => {
             // se autenticação for bem-sucedida, redireciona para usuarios.html
-            window.location = 'usuarios.html';
+            window.location = 'pages/usuarios.html';
         })
         .catch(error => {
             // exibe a mensagem de erro em caso de falha na autenticação
