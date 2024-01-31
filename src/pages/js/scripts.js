@@ -41,7 +41,7 @@ form.addEventListener('submit', evento => {
             .then(data => {
                 validCadastro.style.display = "flex";
                 setTimeout(function () {
-                    window.location = 'src/index.html';
+                    window.location ="src/pages/index.html";
                 }, 1000);
             })
             .catch(error => {
