@@ -39,7 +39,7 @@ form.addEventListener('submit', evento => {
         })
         .then(data => {
             // se autenticação for bem-sucedida, redireciona para usuarios.html
-            window.location = "../../usuarios.html";
+            window.location = "../usuarios.html";
         })
         .catch(error => {
             // exibe a mensagem de erro em caso de falha na autenticação
@@ -73,7 +73,7 @@ form.addEventListener('submit', evento => {
     
     if (response.ok) {
        const data = await response.json();
-       window.location = "../../usuarios.html";
+       window.location = "../usuarios.html";
        console.log(data, "Login bem sucedido")
        return data
     } else {
@@ -102,7 +102,7 @@ async function sendDataToOtherRoute(dataUser) {
     if (response.ok) {
        const data = await response.json(); 
        console.log(data.user[0], "cadastro feito com sucesso")
-       window.location = "../../usuarios.html";
+       window.location = "../usuarios.html";
        return data.user[0]
     } else {
         
