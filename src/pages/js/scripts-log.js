@@ -60,36 +60,29 @@ form.addEventListener('submit', evento => {
         }
 });
 
-    const sub = document.getElementById('sub').textContent;
-    const gEmail = document.getElementById('email').textContent;
-
-
   async function sendDataToAPI(dataUser) {
     try{
-    fetch(url, {
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(dataUser),
     })
-    .then(res => {
-      if (res.ok) {
-       const response = res.json();
-        return response
-        } else {
-            //logica pra cadastrar porque não existe no banco
-            console.log("perdeu no console")
-            return res.json({mesnagem: 'deu ruim'})
-        }
-    })
-    .catch(error => {
-        massegeValid.style.display = "flex";
-        massegeValid.style.backgroundColor = '#ee483ca5';
-        massege.textContent = error;
-    });
+    
+    if (response.ok) {
+       const data = await response.json();
+       window.location = 'usuarios.html';
+       return data
+    } else {
+        //logica pra cadastrar quem a conta google ainda não existe noso banco
+        console.log("perdeu no console")
+        return res.json({mesnagem: 'deu ruim'})
+    }
   }
-  catch{
-
+  catch(error){
+    massegeValid.style.display = "flex";
+    massegeValid.style.backgroundColor = '#ee483ca5';
+    massege.textContent = error;
   }
 }
