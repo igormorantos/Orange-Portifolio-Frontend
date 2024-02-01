@@ -12,12 +12,14 @@
     <link rel="stylesheet" href="css/portfolio.css">
     <link rel="stylesheet" href="css/adicionar-projeto.css">
     <link rel="stylesheet" href="css/resp-modal.css">
+    <link rel="stylesheet" href="css/delecao.css">
     <!--Ícones-->
     <script src="https://kit.fontawesome.com/0f251f1c56.js" crossorigin="anonymous"></script>
     <!--JS-->
     <script src="../pages/js/modal.js" defer></script>
     <script src="../pages/js/add-project.js" defer></script>
     <script src="../pages/js/upload-image.js" defer></script>
+    <script src="../pages/js/delecao.js"></script>
 </head>
 
 <body>
@@ -54,7 +56,7 @@
                     <p id="name">Camila Santos</p>
                     <p id="nationality">Brasil</p>
 
-                    <button class="btn__add-project">Adicionar Projeto</button>
+                    <button class="btn__add-project" id="info-adicionar-projeto">Adicionar Projeto</button>
                 </div>
             </section>
 
@@ -65,13 +67,9 @@
                 </div>
 
                 <div class="projects">
-                    <!-- <button class="card__project" id="add-project">
-                        <img src="../assets/collections.png" alt="icone de arquivos">
-                        <div class="titles">
-                            <p>Adicione seu primeiro projeto</p>
-                            <p class="titles__title">Compartilhe seu talento com milhares de pessoas</p>
-                        </div>
-                    </button> -->
+                    <div class="project">
+                        
+                    </div>
                 </div>
 
                 <div class="container__add-project" id="container__add-project">
@@ -82,8 +80,9 @@
                             <p class="text">Selecione o conteúdo que você deseja fazer upload</p>
                             <div class="input-container">
                                 <input type="file" name="image" id="imageInput" accept="image/*">
-                                <div class="additional-content" >
-                                    <img src="../assets/collections.png" class="image" id="previewImage" alt="Preview Image">
+                                <div class="additional-content">
+                                    <img src="../assets/collections.png" class="image" id="previewImage"
+                                        alt="Preview Image">
                                     <div class="titles" id="titles">
                                         <p>Compartilhe seu talento com milhares de pessoas</p>
                                     </div>

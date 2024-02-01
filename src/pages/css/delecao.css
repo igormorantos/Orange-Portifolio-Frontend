@@ -2,24 +2,26 @@
     font-family: sans-serif;
 }
 
-.card {
-    width: 600px;
-    display: flex;
-    justify-content: space-around;
-}
-
 .card__item {
+    height: 80%;
     width: 300px;
-    border: 2px solid rgb(133, 133, 133);
-    border-radius: 10px;
-    padding-top: 1%;
-    background-color: rgb(240, 152, 165);
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.38);
+    font-weight: 500;
+    border: 2px solid #6c6b6b;
+    transition: all .3s ease-out;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .btn__options {
     display: flex;
     justify-content: end;
-    width: 97%;
+    width: 100%;
     height: 20%;
     position: relative;
 }
@@ -30,6 +32,8 @@
     border-radius: 50px;
     border: none;
     color: #292929;
+    width: 15%;
+    margin: 3% 3% 0;
 }
 
 .btn__options--btn:hover {
@@ -45,7 +49,7 @@
 .options {
     position: absolute;
     left: 5%;
-    top: 3.5%;
+    top: 8%;
     margin-top: 11%;
     width: 270px;
     height: 75px;
@@ -149,3 +153,51 @@
     z-index: 0;
     background-color: rgba(255, 192, 203, 0.301);
 }
+
+.infoProject{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgba(81, 82, 85, 1);
+    border-top: 1px solid #6c6b6b;
+}
+
+.infor, .tags{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.infor{
+    width: 60%;
+}
+
+.infor img{
+    width: 20%;
+    border-radius: 50px;
+}
+
+.infor #name-user{
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.tags {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+}
+
+.tags p{
+    width: auto;
+    height: 70%;
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 50px;
+    padding: 5%;
+    font-size: 10px;
+}
+

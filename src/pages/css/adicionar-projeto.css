@@ -3,7 +3,7 @@ body {
 }
 
 .container__add-project {
-    display: flex;
+    display: none;
     flex-direction: column;
     height: 500px;
     width: 800px;
