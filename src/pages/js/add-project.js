@@ -37,10 +37,6 @@ document.getElementById('imageInput').addEventListener('change', function (event
         }
 
         titles.style.display = 'none';
-        // additionalContent.style.top = '0'
-        // previewImage.style.width = '300px'
-        // previewImage.style.height = '280px';
-        // previewImage.style.backgroundSize = 'contain'
         reader.readAsDataURL(file);
     } else {
         previewImage.src = '';
@@ -55,7 +51,6 @@ function obterDataAtual() {
     const mes = dataAtual.getMonth() + 1; 
     const ano = dataAtual.getFullYear();
 
-    // Formatar o dia, mês e ano
     const diaFormatado = dia < 10 ? '0' + dia : dia;
     const mesFormatado = mes < 10 ? '0' + mes : mes;
 
@@ -66,7 +61,6 @@ function gerarIdAleatorio() {
     return Math.floor(Math.random() * 101);
 }
 
-console.log(obterDataAtual)
 // 4 - adiciona o projeto
 function addProjeto() {
     // Obter os valores dos campos do formulário
@@ -79,9 +73,8 @@ function addProjeto() {
     const dataCriacao = obterDataAtual();
     const id = gerarIdAleatorio()
 
-    // verificar se o campo de titulo e descrição estão preenchidos
-    if (titulo === "" || descricao === "") {
-        alert("Preencha os campos obrigatórios (Título e Descrição)!");
+    if (titulo === "" || tags === "" || links === "" || descricao === "") {
+        alert("Preencha todos os campos obrigatórios (Título, Tags, Links e Descrição)!");
         return;
     }
 
@@ -105,15 +98,79 @@ function addProjeto() {
     // armazena a lista atualizada no localStorage
     localStorage.setItem('projetos', JSON.stringify(projetos));
 
-    // limpa os campos
-    document.querySelector('.container__input input[placeholder="Titulo"]').value = "";
-    document.querySelector('.container__input input[placeholder="Tags"]').value = "";
-    document.querySelector('.container__input input[placeholder="Links"]').value = "";
-    document.getElementById('description').value = "";
+    containerAddProject.style.display = 'none';
 
-    // alert para saber se foi
-    alert("Projeto adicionado com sucesso!");
+    document.getElementById('cad-sucess').style.display = 'flex';
+    setTimeout(function () {
+        location.reload();
+    }, 4000);
 }
+
+// para adiciocnar os projetos com o FETCH
+// function addProjeto() {
+//     // Obter os valores dos campos do formulário
+//     var titulo = document.querySelector('.container__input input[placeholder="Titulo"]').value;
+//     var tags = document.querySelector('.container__input input[placeholder="Tags"]').value;
+//     var links = document.querySelector('.container__input input[placeholder="Links"]').value;
+//     var descricao = document.getElementById('description').value;
+//     const imageInput = document.getElementById('imageInput');
+//     const imagePath = URL.createObjectURL(imageInput.files[0]);
+//     const dataCriacao = obterDataAtual();
+//     const id = gerarIdAleatorio();
+
+//     // Verificar se os campos necessários estão preenchidos
+//     if (titulo === "" || tags === "" || links === "" || descricao === "") {
+//         alert("Preencha todos os campos obrigatórios (Título, Tags, Links e Descrição)!");
+//         return;
+//     }
+
+//     // Criar um objeto representando o projeto
+//     var projeto = {
+//         id: id,
+//         titulo: titulo,
+//         tags: tags,
+//         links: links,
+//         descricao: descricao,
+//         imageInput: imagePath,
+//         dataHoraCriacao: dataCriacao
+//     };
+
+//     const url = 'https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/';
+
+//     fetch(url, {
+//         method: 'POST', 
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(projeto),
+//     })
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error(`Erro na solicitação: ${response.status}`);
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             // limpa os campos
+//             document.querySelector('.container__input input[placeholder="Titulo"]').value = "";
+//             document.querySelector('.container__input input[placeholder="Tags"]').value = "";
+//             document.querySelector('.container__input input[placeholder="Links"]').value = "";
+//             document.getElementById('description').value = "";
+//             containerAddProject.style.display = 'none';
+
+//             // Exibir um alerta para indicar que o projeto foi adicionado com sucesso
+//             console.log("Projeto adicionado com sucesso!");
+
+//             // Recarregar a página após 1 segundo (opcional)
+//             setTimeout(function () {
+//                 location.reload();
+//             }, 1000);
+//         })
+//         .catch(error => {
+//             console.error('Erro durante a adição do projeto:', error);
+//             alert("Erro ao adicionar o projeto. Verifique o console para mais detalhes.");
+//         });
+// }
 
 // 5 - função para carregar e exibir projetos na página portfolio
 function carregarProjetos() {
@@ -134,7 +191,6 @@ function carregarProjetos() {
             const tagsArray = projeto.tags.split(',').map(tag => tag.trim());
             const divproject = document.createElement('div');
 
-
             divproject.innerHTML = `
                 <div class="card__item" id="card${projeto.id}">
                     <div class="btn__options">
@@ -145,7 +201,7 @@ function carregarProjetos() {
                     
 
                     <div class="options" id="options${projeto.id}">
-                        <button class="btn__option" id="editar">Editar</button>
+                        <button class="btn__option" id="update" onclick="updateProject()">Editar</button>
                         <button class="btn__option" id="excluir" onclick="confirmDelete('card${projeto.id}')">Excluir</button>
                     </div>
 
@@ -172,7 +228,7 @@ function carregarProjetos() {
                         <p class="confirm-delete--text">Se você prosseguir irá excluir o projeto do seu portfólio
                         </p>
                         <button class="btn-del-edit color__excluir"
-                            onclick="deleteCard('card${projeto.id}')">Excluir</button>
+                            onclick="deleteCard('card${projeto.id}', ${projeto.id})">Excluir</button>
                         <button class="btn-del-edit" onclick="cancelDelete('card${projeto.id}')">Cancelar</button>
                     </div>
 
@@ -228,3 +284,11 @@ function carregarProjetos() {
 
 // chamar a função para carregar projetos ao carregar a página
 carregarProjetos();
+
+function msgAdicionado(){
+    if (document.getElementById('cad-sucess').style.display === 'flex') {
+        document.getElementById('cad-sucess').style.display = 'none';
+    } else {
+        document.getElementById('cad-sucess').style.display = 'flex';
+    }
+}

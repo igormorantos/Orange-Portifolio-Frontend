@@ -19,7 +19,8 @@
     <script src="../pages/js/modal.js" defer></script>
     <script src="../pages/js/add-project.js" defer></script>
     <script src="../pages/js/upload-image.js" defer></script>
-    <script src="../pages/js/delecao.js"></script>
+    <script src="../pages/js/delecao.js" defer></script>
+    <script src="../pages/js/update-project.js" defer></script>
 </head>
 
 <body>
@@ -107,7 +108,53 @@
                         <button id="cancel">Cancelar</button>
                     </div>
                 </div>
+
+                <div class="cad-sucess" id="cad-sucess">
+                    <p>Projeto adicionado com sucesso!</p>
+                    <i class="fas fa-check-circle"></i>
+                    <button class="btn-fechar" id="btn-fechar" onclick="msgAdicionado()">Voltar para projetos</button>
+                </div>
+
+                <div class="cad-sucess" id="cad-sucess">
+                    <p>Edição concluída com sucesso!</p>
+                    <i class="fas fa-check-circle"></i>
+                    <button class="btn-fechar" id="btn-fechar" onclick="msgAdicionado()">Voltar para projetos</button>
+                </div>
             </section>
+        </div>
+
+        <div class="container__add-project--up" id="container__update-project">
+            <p class="titles--title">Editar Objeto</p>
+        
+            <form class="form-container">
+                <div class="container__img">
+                    <p class="text">Selecione o conteúdo que você deseja fazer upload</p>
+                    <div class="input-container">
+                        <input type="file" name="image" id="imageInput" accept="image/*">
+                        <div class="additional-content">
+                            <img src="../assets/collections.png" class="image" id="previewImage" alt="Preview Image">
+                            <div class="titles" id="titles">
+                                <p>Compartilhe seu talento com milhares de pessoas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+                <div class="container__input">
+                    <input type="text" placeholder="Titulo">
+                    <input type="text" placeholder="Tags">
+                    <input type="text" placeholder="Links">
+                    <textarea name="description" id="description" cols="30" rows="10" placeholder="Descrição"></textarea>
+                </div>
+            </form>
+        
+            <a href="#" class="view">Visualizar publicação</a>
+        
+            <div class="buttons">
+                <input type="submit" value="Salvar" onclick="addProjeto()">
+                <button id="cancel">Cancelar</button>
+            </div>
         </div>
 
     </main>

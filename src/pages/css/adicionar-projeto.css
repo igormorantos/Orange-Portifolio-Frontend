@@ -6,15 +6,18 @@ body {
     display: none;
     flex-direction: column;
     height: 500px;
-    width: 800px;
-    background-color: rgb(250, 195, 203);
+    width: 90%;
+    background-color: rgb(255, 255, 255);
     color: black;
     position: absolute;
-    top: 130px;
-    left: 20%;
+    top: -25%;
+    left: 25%;
     padding: 2%;
     border-radius: 5px;
+    box-shadow: 0 0 300px 600px rgba(0, 0, 0, 0.5);
+        /* Box-shadow para a div */
 }
+
 .titles--title {
     font-size: 24px;
     color: rgba(81, 82, 85, 1);
@@ -27,7 +30,9 @@ body {
     justify-content: space-between;
     width: 100%;
     height: 80%;
+    position: relative;
 }
+
 
 .container__img {
     width: 50%;
@@ -50,6 +55,9 @@ body {
     opacity: 0;
 }
 
+.input-container input:hover {
+    cursor: pointer;
+}
 
 .text{
     color: rgba(81, 82, 85, 1);
@@ -146,4 +154,47 @@ body {
     margin: 2% 0;
     text-decoration: none;
     color: rgba(81, 82, 85, 1);
+}
+
+.cad-sucess{
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    height: 240px;
+    width: 300px;
+    background-color: rgb(255, 255, 255);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 300px 600px rgba(0, 0, 0, 0.5);
+        /* Box-shadow para a div */
+}
+
+.cad-sucess p{
+    color: #515255;
+    font-size: 24px;
+    text-align: center;
+}
+
+.cad-sucess i{
+    color: green;
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+.cad-sucess button{
+    background-color: #FF5522;
+    border: none;
+    height: 40px;
+    width: 80%;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 5px 5px -3px #9e9e9e;
+}
+
+@media screen and (min-width: 660px) {
+    .container__add-project{
+        left: 25%;
+    }
 }
