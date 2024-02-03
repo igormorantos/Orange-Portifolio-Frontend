@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/portfolio.css">
     <link rel="stylesheet" href="css/adicionar-projeto.css">
     <link rel="stylesheet" href="css/resp-modal.css">
+    <link rel="stylesheet" href="css/modal-up.css">
     <link rel="stylesheet" href="css/delecao.css">
     <!--Ícones-->
     <script src="https://kit.fontawesome.com/0f251f1c56.js" crossorigin="anonymous"></script>
@@ -81,7 +82,7 @@
                             <p class="text">Selecione o conteúdo que você deseja fazer upload</p>
                             <div class="input-container">
                                 <input type="file" name="image" id="imageInput" accept="image/*">
-                                <div class="additional-content">
+                                <div class="additional-content" id="additional-content">
                                     <img src="../assets/collections.png" class="image" id="previewImage"
                                         alt="Preview Image">
                                     <div class="titles" id="titles">
@@ -124,13 +125,13 @@
         </div>
 
         <div class="container__add-project--up" id="container__update-project">
-            <p class="titles--title">Editar Objeto</p>
+            <p class="titles--title">Editar projeto</p>
         
             <form class="form-container">
                 <div class="container__img">
                     <p class="text">Selecione o conteúdo que você deseja fazer upload</p>
                     <div class="input-container">
-                        <input type="file" name="image" id="imageInput" accept="image/*">
+                        <input type="file" name="image" id="imageUpdate" accept="image/*">
                         <div class="additional-content">
                             <img src="../assets/collections.png" class="image" id="previewImage" alt="Preview Image">
                             <div class="titles" id="titles">
@@ -152,8 +153,8 @@
             <a href="#" class="view">Visualizar publicação</a>
         
             <div class="buttons">
-                <input type="submit" value="Salvar" onclick="addProjeto()">
-                <button id="cancel">Cancelar</button>
+                <input type="submit" value="Salvar" onclick="updateProject()">
+                <button id="cancelUpdate">Cancelar</button>
             </div>
         </div>
 

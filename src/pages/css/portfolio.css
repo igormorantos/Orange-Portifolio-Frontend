@@ -137,22 +137,20 @@
     margin-top: 4%;
 }
 
-
-.container__add-project--up{
+#container__update-project{
     display: none;
     box-shadow: 0 0 300px 600px rgba(0, 0, 0, 0.5);
-    width: 600px;
-    height: 480px;
+    max-width: 50%;
+    height: 500px;
     background-color: #fff;
     position: absolute;
-    top: 17%;
+    top: 12%;
     left: 25%;
     padding: 2%;
 }
 
-
-.container__add-project--up a{
-    border: 2px solid red;
+#container__update-project .container__input{
+    justify-content: space-around;
 }
 
 /*Resposnsividade perfil*/

@@ -6,12 +6,12 @@ body {
     display: none;
     flex-direction: column;
     height: 500px;
-    width: 90%;
+    width: 500px;
     background-color: rgb(255, 255, 255);
     color: black;
     position: absolute;
-    top: -25%;
-    left: 25%;
+    top: -50%;
+    left: 30%;
     padding: 2%;
     border-radius: 5px;
     box-shadow: 0 0 300px 600px rgba(0, 0, 0, 0.5);
@@ -33,7 +33,6 @@ body {
     position: relative;
 }
 
-
 .container__img {
     width: 50%;
     display: flex;
@@ -46,22 +45,20 @@ body {
     display: flex;
     flex-direction: row;
     margin: 0;
-    position: relative; 
+    position: relative;
     border-radius: 5px;
+    overflow: hidden;
+    /* Ensure the image doesn't overflow the container */
 }
 
 .input-container input {
     flex-grow: 1;
     opacity: 0;
+    z-index: 2;
 }
 
 .input-container input:hover {
     cursor: pointer;
-}
-
-.text{
-    color: rgba(81, 82, 85, 1);
-    margin: 2% 0;
 }
 
 .additional-content {
@@ -69,17 +66,20 @@ body {
     flex-direction: column;
     align-items: center;
     position: absolute;
-    top: 40%;
+    top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1;
 }
 
-.additional-content .image{
-    width: 40px;
+.additional-content .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-
-.input-container .titles{
+.input-container .titles {
     width: 90%;
     text-align: left;
     padding-left: 30px;
@@ -99,7 +99,6 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.23);
     border-radius: 5px;
     padding: 2%;
-
 }
 
 .container__input input{
@@ -168,7 +167,6 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 300px 600px rgba(0, 0, 0, 0.5);
-        /* Box-shadow para a div */
 }
 
 .cad-sucess p{
@@ -191,10 +189,4 @@ body {
     color: #fff;
     border-radius: 5px;
     box-shadow: 0px 5px 5px -3px #9e9e9e;
-}
-
-@media screen and (min-width: 660px) {
-    .container__add-project{
-        left: 25%;
-    }
 }

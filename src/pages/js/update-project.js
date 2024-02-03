@@ -1,12 +1,13 @@
+const updateModel = document.getElementById('container__update-project');
+
 function updateProject() {
     var titulo = document.querySelector('.container__input input[placeholder="Titulo"]').value;
     var tags = document.querySelector('.container__input input[placeholder="Tags"]').value;
     var links = document.querySelector('.container__input input[placeholder="Links"]').value;
     var descricao = document.getElementById('description').value;
-    const imageInput = document.getElementById('imageInput');
+    const imageInput = document.getElementById('imageUpdate');
     const imagePath = URL.createObjectURL(imageInput.files[0]);
     const dataCriacao = obterDataAtual();
-    const id = gerarIdAleatorio();
 
     if (titulo === "" || tags === "" || links === "" || descricao === "") {
         alert("Por favor, preencha todos os campos obrigatórios.");
@@ -14,17 +15,16 @@ function updateProject() {
     }
 
     var dadosAtualizados = {
-        id: id,
         titulo: titulo,
         tags: tags,
-        links: links,
-        descricao: descricao,
-        imagePath: imagePath,
-        dataCriacao: dataCriacao
+        link: links,
+        description: descricao,
+        coverphoto: imagePath,
+        updatedAt: dataCriacao
     };
 
 
-    fetch('https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/', {
+    fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/${id}`, {
         method: 'PUT', // atualiza 
         headers: {
             'Content-Type': 'application/json',
@@ -45,3 +45,13 @@ function updateProject() {
             alert("Erro ao atualizar os dados. Verifique o console para mais detalhes.");
         });
 }
+
+function openUpdate() {
+    updateModel.style.display = 'block'
+}
+
+
+const btnCancelUpdate = document.getElementById('cancelUpdate');
+btnCancelUpdate.addEventListener('click', function(){
+    updateModel.style.display = 'none'
+})

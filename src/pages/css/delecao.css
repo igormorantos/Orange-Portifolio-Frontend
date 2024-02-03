@@ -16,6 +16,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 2px solid red;
+}
+.image-project img {
+    margin-left: 25%;
 }
 
 .btn__options {
@@ -48,9 +52,8 @@
 
 .options {
     position: absolute;
-    left: 62%;
-    top: 8%;
-    margin-top: 11%;
+    left: 65%;
+    top: 20%;
     width: 100px;
     height: 75px;
     display: none;
@@ -91,7 +94,6 @@
     z-index: 1;
     display: none;
     position: fixed;
-    /* Altere para fixed para manter a posição fixa na tela */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -169,14 +171,13 @@
     flex-direction: row;
     align-items: center;
     color: rgba(81, 82, 85, 1);
-    border-top: 1px solid #6c6b6b;
+
 }
 
 .infor, .tags{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 10%;
 }
 
 .infor{
