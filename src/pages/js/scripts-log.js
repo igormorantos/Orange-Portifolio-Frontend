@@ -91,44 +91,11 @@ form.addEventListener('submit', evento => {
 }
 
 
-async function sendToCadastro(dataUser) {
-  try{
-  const response = await fetch(url2, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(dataUser),
-  }) .then(res => {
-    if (res.ok) {
-        return res.json();
-    } else {
-        throw new Error('Erro na autenticação');
-    }
-  })
-  .then(data => {
-    console.log(data, "cadastro bem sucedido")
-    sessionStorage.setItem('data', JSON.stringify(data));
-    window.location = "../../index.html";
-   return response.json(data);
-  })
-  .catch(error => {
-    // exibe a mensagem de erro em caso de falha na autenticação
-    massegeValid.style.display = "flex";
-    massegeValid.style.backgroundColor = '#ee483ca5';
-    massege.textContent = error;
-});
-}
-catch(error){
-}
-}
 
 
-
-/*
 async function sendDataToOtherRoute(dataUser) {
     try{
-    const response = await fetch('https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/add', {
+    const response = await fetch('https://orange-portifolio-api-a03fcc01e1a7.herokuapp.com/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -151,4 +118,4 @@ async function sendDataToOtherRoute(dataUser) {
     massegeValid.style.backgroundColor = '#ee483ca5';
     massege.textContent = error;
   }
-}*/
+}
