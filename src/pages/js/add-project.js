@@ -6,7 +6,7 @@ const cancelButton = document.getElementById('cancel');
 const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
 console.log(dataLoggedUser)
 const userNamePrincipal = document.getElementById('name');
-userNamePrincipal.textContent = "igor moreira"
+userNamePrincipal.textContent = dataLoggedUser.usuario.firstName
 
 adicionarProjetoInfo.addEventListener('click', function () {
     if (containerAddProject.style.display === 'none') {
@@ -201,9 +201,7 @@ async function carregarProjetos() {
                 const tagsArray = projeto.tags.split(',').map(tag => tag.trim());
                 const divproject = document.createElement('div');
 
-               const dataCriada = transformData(projeto.createdAt)
-
-               console.log(projeto)
+               const dataCriada = transformData(projeto.createdAt);
 
 
 
