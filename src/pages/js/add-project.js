@@ -138,7 +138,7 @@ function addProjeto() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + dataLoggedUser.token,
+            'Authorization': dataLoggedUser.token,
         },
         body: JSON.stringify(projeto),
     };
