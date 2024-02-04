@@ -179,7 +179,7 @@ async function carregarProjetos() {
         };
     
         // url da api
-        await fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/${dataLoggedUser.usuario.id}`, requestOptions)
+        const response = await fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/${dataLoggedUser.usuario.id}`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log('Projeto adicionado com sucesso:', data);
