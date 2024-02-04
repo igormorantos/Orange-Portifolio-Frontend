@@ -4,6 +4,7 @@ const massege = massegeValid.querySelector('p');
 
 const url = 'https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/login';
 const url2 = 'https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/add';
+let data;
 
 // função para o login
 form.addEventListener('submit', evento => {
@@ -116,5 +117,5 @@ async function sendDataToOtherRoute(dataUser) {
   }
 }
 
-console.log("saiu::::" + data)
 
+console.log("teste de data" + data);
