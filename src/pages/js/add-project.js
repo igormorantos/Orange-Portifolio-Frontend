@@ -4,7 +4,6 @@ const adicionarProjetoInfo = document.getElementById('info-adicionar-projeto')
 const containerAddProject = document.getElementById('container__add-project');
 const cancelButton = document.getElementById('cancel');
 const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
-console.log(dataLoggedUser)
 const userNamePrincipal = document.getElementById('name');
 nomeCompleto = dataLoggedUser.usuario.firstName + ' ' + dataLoggedUser.usuario.lastName
 userNamePrincipal.textContent = nomeCompleto

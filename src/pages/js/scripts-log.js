@@ -16,8 +16,8 @@ form.addEventListener('submit', evento => {
 
 
     const emailStandard = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (emailStandard.test(email) && password.length >= 8) {
+    //emailStandard.test(email) && password.length >= 4
+    if (1 == 1) {
         
         const valuesInputs = {
             email: email,
@@ -39,8 +39,10 @@ form.addEventListener('submit', evento => {
             }
         })
         .then(data => {
-            // se autenticação for bem-sucedida, redireciona para usuarios.html
-            //window.location = "../../usuarios.html";
+          console.log(data, "Login bem sucedido")
+          sessionStorage.setItem('data', JSON.stringify(data));
+          window.location = "../pages/portfolio.html";
+          return response.json(data);
         })
         .catch(error => {
             // exibe a mensagem de erro em caso de falha na autenticação
@@ -79,32 +81,29 @@ form.addEventListener('submit', evento => {
        window.location = "../pages/portfolio.html";
        return response.json(data)
     } else {
-        console.log('Primeiro Acesso do Usuario')
+        console.log(dataUser)
         sendDataToOtherRoute(dataUser)
-        return response.json({data, mensagem: 'Primeiro Acesso do Usuario'})
+        return response.json({mensagem: 'Primeiro Acesso do Usuario'})
     }
   }
   catch(error){
-   /* massegeValid.style.display = "flex";
-    massegeValid.style.backgroundColor = '#ee483ca5';
-    massege.textContent = error;*/ //codigo esta quebrando quando chega no cadastro
   }
 }
 
 async function sendDataToOtherRoute(dataUser) {
     try{
-    const response = await fetch(url2, {
+    const response = await fetch('https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(dataUser),
     })
-    
     if (response.ok) {
        const data = await response.json(); 
        console.log(data.user[0], "cadastro feito com sucesso")
-       //window.location = "../../usuarios.html";
+       sessionStorage.setItem('data', JSON.stringify(data.user));
+       window.location = "../pages/portfolio.html";
        return data.user[0]
     } else {
         
