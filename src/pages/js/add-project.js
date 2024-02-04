@@ -182,8 +182,7 @@ async function carregarProjetos() {
         const response = await fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/${dataLoggedUser.usuario.id}`, requestOptions)
             const data = await response.json();
     
-           const projetos = json.stringify(data)
-           json.stringify(data)
+           const projetos = JSON.stringify(data)
            console.log("data funcinou" + projetos)
 
         projectsContainer.innerHTML = '';
