@@ -189,11 +189,6 @@ async function carregarProjetos() {
             });
     
 
-        // verifica se foi bem sucedido
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status}`);
-        }
-
         const projetos = await response.json();
         console.log(projetos)
 
