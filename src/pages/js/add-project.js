@@ -4,7 +4,6 @@ const adicionarProjetoInfo = document.getElementById('info-adicionar-projeto')
 const containerAddProject = document.getElementById('container__add-project');
 const cancelButton = document.getElementById('cancel');
 const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
-console.log(dataLoggedUser.token);
 
 
 adicionarProjetoInfo.addEventListener('click', function () {
@@ -139,7 +138,7 @@ function addProjeto() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsImlhdCI6MTcwNjk5NjU1MSwiZXhwIjoxNzA3MDI1MzUxfQ.e2pvGANAR6-0reOewmN1EDVx5Vka-GFN_-VFUXbkYqk',
+            'Authorization': dataLoggedUser.token,
         },
         body: JSON.stringify(projeto),
     };
