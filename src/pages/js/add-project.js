@@ -4,7 +4,7 @@ const adicionarProjetoInfo = document.getElementById('info-adicionar-projeto')
 const containerAddProject = document.getElementById('container__add-project');
 const cancelButton = document.getElementById('cancel');
 const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
-console.log(dataLoggedUser);
+console.log(dataLoggedUser.usuario.id);
 
 adicionarProjetoInfo.addEventListener('click', function () {
     if (containerAddProject.style.display === 'none') {
@@ -130,7 +130,7 @@ function addProjeto() {
         link: links,
         description: descricao,
         coverphoto: imagePath,
-        fk_iduser: dataLoggedUser.id
+        fk_iduser: dataLoggedUser.usuario.id
     };
 
    
