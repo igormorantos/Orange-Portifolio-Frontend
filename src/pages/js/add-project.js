@@ -5,6 +5,7 @@ const containerAddProject = document.getElementById('container__add-project');
 const cancelButton = document.getElementById('cancel');
 const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
 console.log(dataLoggedUser)
+
 adicionarProjetoInfo.addEventListener('click', function () {
     if (containerAddProject.style.display === 'none') {
         containerAddProject.style.display = 'flex';
@@ -154,8 +155,6 @@ function addProjeto() {
 }
 
 
-
-
 // para adiciocnar os projetos com o FETCH
 // function addProjeto() {
 //     // Obter os valores dos campos do formulário
@@ -223,151 +222,26 @@ function addProjeto() {
 // }
 
 // 5 - função para carregar e exibir projetos na página portfolio
-function carregarProjetos() {
-    const projectsContainer = document.querySelector('.projects');
-
-    // obtem os projetos do localStorage
-    const projetos = JSON.parse(localStorage.getItem('projetos')) || [];
-    console.log(projetos)
-    const cardItem = document.getElementById('card__item');
-
-    projectsContainer.innerHTML = '';
-
-    // verifica se tem projetos cadastrados no LocalStorage
-    if (projetos.length > 0) {
-        projetos.forEach(projeto => {
-            
-            // pega os valores da propriedade "tags" e divide-os
-            const tagsArray = projeto.tags.split(',').map(tag => tag.trim());
-            const divproject = document.createElement('div');
-
-            divproject.innerHTML = `
-                <div class="card__item" id="card${projeto.id}">
-                    <div class="btn__options">
-                        <button class="btn__options--btn" onclick="showOptions('options${projeto.id}')">
-                            <i class="fas fa-pen"></i>
-                        </button>
-                    </div>
-                    
-
-                    <div class="options" id="options${projeto.id}">
-                        <button class="btn__option" id="update" onclick="openUpdate()">Editar</button>
-                        <button class="btn__option" id="excluir" onclick="confirmDelete('card${projeto.id}')">Excluir</button>
-                    </div>
-
-                    <div class="image-project">
-                        <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
-                    </div>
-
-                    <div class="infoProject">
-                        <div class="infor">
-                            <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
-                            <p  id="name-user">Camila Soares</p>
-                            <p id="hour-create">${projeto.dataHoraCriacao}</p>
-                        </div>
-
-                        <div class="tags">
-                            <p>${tagsArray[0]}</p>
-                            <p>${tagsArray[1]}</p>
-                        </div>
-                        
-                    </div>
-
-                    <div class="confirm-delete" id="confirmDeletecard${projeto.id}">
-                        <p class="confirm-delete--title">Deseja excluir?</p>
-                        <p class="confirm-delete--text">Se você prosseguir irá excluir o projeto do seu portfólio
-                        </p>
-                        <button class="btn-del-edit color__excluir"
-                            onclick="deleteCard('card${projeto.id}', ${projeto.id})">Excluir</button>
-                        <button class="btn-del-edit" onclick="cancelDelete('card${projeto.id}')">Cancelar</button>
-                    </div>
-
-                    <div class="confirm-delete deleteSuccess" id="deleteSuccess${projeto.id}">
-                        <p>Projeto deletado com sucesso!</p>
-                        <i class="fas fa-check-circle"></i>
-                        <button class="btn-fechar" id="btn-fechar">Voltar para projetos</button>
-                    </div>
-                </div>
-            `;
-
-            projectsContainer.appendChild(divproject);
-        });
-    } else {
-        // se não tiver projetos cadastrados mostra a div de adicionar
-        const noProjectsMessage = document.createElement('button');
-        noProjectsMessage.classList.add('card__project');
-        noProjectsMessage.id = 'add-project';
-
-        const noProjectsImage = document.createElement('img');
-        noProjectsImage.src = '../assets/collections.png';
-        noProjectsImage.alt = 'Icone de arquivos';
-        noProjectsMessage.appendChild(noProjectsImage);
-
-        const noProjectsTitles = document.createElement('div');
-        noProjectsTitles.classList.add('titles');
-
-        const noProjectsParagraph1 = document.createElement('p');
-        noProjectsParagraph1.textContent = 'Adicione seu primeiro projeto';
-        noProjectsTitles.appendChild(noProjectsParagraph1);
-
-        const noProjectsParagraph2 = document.createElement('p');
-        noProjectsParagraph2.classList.add('titles__title');
-        noProjectsParagraph2.textContent = 'Compartilhe seu talento com milhares de pessoas';
-        noProjectsTitles.appendChild(noProjectsParagraph2);
-
-        noProjectsMessage.appendChild(noProjectsTitles);
-
-        // adiciona o botão à lista de projetos
-        projectsContainer.appendChild(noProjectsMessage);
-
-        const addProject = document.getElementById('add-project');
-        // mostra o modal
-        addProject.addEventListener('click', function () {
-            if (containerAddProject.style.display === 'none') {
-                containerAddProject.style.display = 'flex';
-            } else {
-                containerAddProject.style.display = 'none';
-            }
-        })
-    }
-}
-
-// chamar a função para carregar projetos ao carregar a página
-carregarProjetos();
-
-function msgAdicionado(){
-    if (document.getElementById('cad-sucess').style.display === 'flex') {
-        document.getElementById('cad-sucess').style.display = 'none';
-    } else {
-        document.getElementById('cad-sucess').style.display = 'flex';
-    }
-}
-
-// carrega os projetos do banco
-//---------------------------------------------------------------------------------------
-// async function carregarProjetos() {
+// function carregarProjetos() {
 //     const projectsContainer = document.querySelector('.projects');
 
-//     try {
-//         const response = await fetch('https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects');
+//     // obtem os projetos do localStorage
+//     const projetos = JSON.parse(localStorage.getItem('projetos')) || [];
+//     console.log(projetos)
+//     const cardItem = document.getElementById('card__item');
 
-//         // verifica se foi bem sucedido
-//         if (!response.ok) {
-//             throw new Error(`Error: ${response.status}`);
-//         }
+//     projectsContainer.innerHTML = '';
 
-//         const projetos = await response.json();
+//     // verifica se tem projetos cadastrados no LocalStorage
+//     if (projetos.length > 0) {
+//         projetos.forEach(projeto => {
+            
+//             // pega os valores da propriedade "tags" e divide-os
+//             const tagsArray = projeto.tags.split(',').map(tag => tag.trim());
+//             const divproject = document.createElement('div');
 
-//         projectsContainer.innerHTML = '';
-
-//         // se existir projetos cadastrados:
-//         if (projetos.length > 0) {
-//             projetos.forEach(projeto => {
-//                 const tagsArray = projeto.tags.split(',').map(tag => tag.trim());
-//                 const divproject = document.createElement('div');
-
-//                 divproject.innerHTML = `
-//                     <div class="card__item" id="card${projeto.id}">
+//             divproject.innerHTML = `
+//                 <div class="card__item" id="card${projeto.id}">
 //                     <div class="btn__options">
 //                         <button class="btn__options--btn" onclick="showOptions('options${projeto.id}')">
 //                             <i class="fas fa-pen"></i>
@@ -413,14 +287,140 @@ function msgAdicionado(){
 //                         <button class="btn-fechar" id="btn-fechar">Voltar para projetos</button>
 //                     </div>
 //                 </div>
-//                 `;
+//             `;
 
-//                 projectsContainer.appendChild(divproject);
-//             });
-//         }
-//     } catch (error) {
-//         console.error('Erro ao carregar projetos:', error.message);
+//             projectsContainer.appendChild(divproject);
+//         });
+//     } else {
+//         // se não tiver projetos cadastrados mostra a div de adicionar
+//         const noProjectsMessage = document.createElement('button');
+//         noProjectsMessage.classList.add('card__project');
+//         noProjectsMessage.id = 'add-project';
+
+//         const noProjectsImage = document.createElement('img');
+//         noProjectsImage.src = '../assets/collections.png';
+//         noProjectsImage.alt = 'Icone de arquivos';
+//         noProjectsMessage.appendChild(noProjectsImage);
+
+//         const noProjectsTitles = document.createElement('div');
+//         noProjectsTitles.classList.add('titles');
+
+//         const noProjectsParagraph1 = document.createElement('p');
+//         noProjectsParagraph1.textContent = 'Adicione seu primeiro projeto';
+//         noProjectsTitles.appendChild(noProjectsParagraph1);
+
+//         const noProjectsParagraph2 = document.createElement('p');
+//         noProjectsParagraph2.classList.add('titles__title');
+//         noProjectsParagraph2.textContent = 'Compartilhe seu talento com milhares de pessoas';
+//         noProjectsTitles.appendChild(noProjectsParagraph2);
+
+//         noProjectsMessage.appendChild(noProjectsTitles);
+
+//         // adiciona o botão à lista de projetos
+//         projectsContainer.appendChild(noProjectsMessage);
+
+//         const addProject = document.getElementById('add-project');
+//         // mostra o modal
+//         addProject.addEventListener('click', function () {
+//             if (containerAddProject.style.display === 'none') {
+//                 containerAddProject.style.display = 'flex';
+//             } else {
+//                 containerAddProject.style.display = 'none';
+//             }
+//         })
 //     }
 // }
 
+// // chamar a função para carregar projetos ao carregar a página
 // carregarProjetos();
+
+function msgAdicionado(){
+    if (document.getElementById('cad-sucess').style.display === 'flex') {
+        document.getElementById('cad-sucess').style.display = 'none';
+    } else {
+        document.getElementById('cad-sucess').style.display = 'flex';
+    }
+}
+
+// carrega os projetos do banco
+//---------------------------------------------------------------------------------------
+async function carregarProjetos() {
+    const projectsContainer = document.querySelector('.projects');
+
+    try {
+        const response = await fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects${dataLoggedUser.usuario.id}`);
+
+        // verifica se foi bem sucedido
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+
+        const projetos = await response.json();
+        console.log(projetos)
+
+        projectsContainer.innerHTML = '';
+
+        // se existir projetos cadastrados:
+        if (projetos.length > 0) {
+            projetos.forEach(projeto => {
+                const tagsArray = projeto.tags.split(',').map(tag => tag.trim());
+                const divproject = document.createElement('div');
+
+                divproject.innerHTML = `
+                    <div class="card__item" id="card${projeto.id}">
+                    <div class="btn__options">
+                        <button class="btn__options--btn" onclick="showOptions('options${projeto.id}')">
+                            <i class="fas fa-pen"></i>
+                        </button>
+                    </div>
+                    
+
+                    <div class="options" id="options${projeto.id}">
+                        <button class="btn__option" id="update" onclick="openUpdate()">Editar</button>
+                        <button class="btn__option" id="excluir" onclick="confirmDelete('card${projeto.id}')">Excluir</button>
+                    </div>
+
+                    <div class="image-project">
+                        <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
+                    </div>
+
+                    <div class="infoProject">
+                        <div class="infor">
+                            <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
+                            <p  id="name-user">Camila Soares</p>
+                            <p id="hour-create">${projeto.dataHoraCriacao}</p>
+                        </div>
+
+                        <div class="tags">
+                            <p>${tagsArray[0]}</p>
+                            <p>${tagsArray[1]}</p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="confirm-delete" id="confirmDeletecard${projeto.id}">
+                        <p class="confirm-delete--title">Deseja excluir?</p>
+                        <p class="confirm-delete--text">Se você prosseguir irá excluir o projeto do seu portfólio
+                        </p>
+                        <button class="btn-del-edit color__excluir"
+                            onclick="deleteCard('card${projeto.id}', ${projeto.id})">Excluir</button>
+                        <button class="btn-del-edit" onclick="cancelDelete('card${projeto.id}')">Cancelar</button>
+                    </div>
+
+                    <div class="confirm-delete deleteSuccess" id="deleteSuccess${projeto.id}">
+                        <p>Projeto deletado com sucesso!</p>
+                        <i class="fas fa-check-circle"></i>
+                        <button class="btn-fechar" id="btn-fechar">Voltar para projetos</button>
+                    </div>
+                </div>
+                `;
+
+                projectsContainer.appendChild(divproject);
+            });
+        }
+    } catch (error) {
+        console.error('Erro ao carregar projetos:', error.message);
+    }
+}
+
+carregarProjetos();
