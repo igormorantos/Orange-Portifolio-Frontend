@@ -154,7 +154,14 @@ function addProjeto() {
         });
 }
 
+function transformData(data){
+    const data = new Date(data);
+    const dataFormatada = data.toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+});
 
+}
 
 function msgAdicionado(){
     if (document.getElementById('cad-sucess').style.display === 'flex') {
@@ -191,8 +198,7 @@ async function carregarProjetos() {
             projetos.forEach(projeto => {
                 const tagsArray = projeto.tags.split(',').map(tag => tag.trim());
                 const divproject = document.createElement('div');
-                console.log(projeto)
-
+                console.log(transformData(projeto.createdAt))
                 divproject.innerHTML = `
                     <div class="card__item" id="card${projeto.id}">
                     <div class="btn__options">
