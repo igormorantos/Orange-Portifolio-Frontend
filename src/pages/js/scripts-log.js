@@ -76,7 +76,7 @@ form.addEventListener('submit', evento => {
        const data = await response.json();
        console.log(data, "Login bem sucedido")
        sessionStorage.setItem('data', JSON.stringify(data));
-       window.location = "../../usuarios.html";
+       window.location = "../pages/portfolio.html";
        return response.json(data)
     } else {
         console.log('Primeiro Acesso do Usuario')
