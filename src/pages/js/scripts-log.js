@@ -82,7 +82,7 @@ form.addEventListener('submit', evento => {
        return response.json(data)
     } else {
         console.log(dataUser)
-        sendToCadastro(dataUser)
+        sendDataToOtherRoute(dataUser)
         return response.json({mensagem: 'Primeiro Acesso do Usuario'})
     }
   }
@@ -93,7 +93,7 @@ form.addEventListener('submit', evento => {
 
 async function sendDataToOtherRoute(dataUser) {
     try{
-    const response = await fetch('https://orange-portifolio-api-a03fcc01e1a7.herokuapp.com/add', {
+    const response = await fetch('https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
