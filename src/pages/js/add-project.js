@@ -200,7 +200,9 @@ async function carregarProjetos() {
                 const divproject = document.createElement('div');
 
                const dataCriada = transformData(projeto.createdAt)
-                console.log(dataCriada)
+
+               console.log(projeto)
+
 
 
                 divproject.innerHTML = `
@@ -225,7 +227,7 @@ async function carregarProjetos() {
                         <div class="infor">
                             <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
                             <p  id="name-user">${dataLoggedUser.usuario.firstName}  ${dataLoggedUser.usuario.lastName}</p>
-                            <p id="hour-create">${projeto.createdAt}</p>
+                            <p id="hour-create">${dataCriada}</p>
                         </div>
 
                         <div class="tags">
