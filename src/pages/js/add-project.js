@@ -3,8 +3,8 @@ const addProject = document.getElementById('add-project');
 const adicionarProjetoInfo = document.getElementById('info-adicionar-projeto')
 const containerAddProject = document.getElementById('container__add-project');
 const cancelButton = document.getElementById('cancel');
-import dataLoggedUser from './dataUser';
-console.log(dataLoggedUser);
+const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
+console.log("teste de usuario logado: ", dataLoggedUser );
 
 
 adicionarProjetoInfo.addEventListener('click', function () {
