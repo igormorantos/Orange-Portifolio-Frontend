@@ -80,39 +80,27 @@ form.addEventListener('submit', evento => {
        return response.json(data)
     } else {
         console.log(dataUser)
-
-        const formatado = {
-          firstName: dataUser.firstName,
-          lastName: dataUser.lastName,
-          email: dataUser.email,
-          password: dataUser.password
-        }
-        sendDataToOtherRoute(formatado)
-        console.log(formatado, "foi formatado!!")
+        sendDataToOtherRoute(dataUser)
         return response.json({mensagem: 'Primeiro Acesso do Usuario'})
     }
   }
   catch(error){
-   /* massegeValid.style.display = "flex";
-    massegeValid.style.backgroundColor = '#ee483ca5';
-    massege.textContent = error;*/ //codigo esta quebrando quando chega no cadastro
   }
 }
 
 async function sendDataToOtherRoute(dataUser) {
     try{
-    const response = await fetch(url2, {
+    const response = await fetch('https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(dataUser),
+      body: JSON.stringify(dataUser)
     })
-    console.log("VEIO PARA O sendData AA")
     if (response.ok) {
        const data = await response.json(); 
        console.log(data.user[0], "cadastro feito com sucesso")
-       //window.location = "../../usuarios.html";
+       window.location = "../../usuarios.html";
        sessionStorage.setItem('data', JSON.stringify(data));
        window.location = "../pages/portfolio.html";
        return data.user[0]
