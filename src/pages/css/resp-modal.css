@@ -1,54 +1,100 @@
-@media screen and (max-width: 660px){
+
+
+
+@media screen and (max-width: 661px) {
     .container__projects{
         margin-top: 8%;
     }
 
-    .container__add-project{
+    .container__add-project {
         width: 200px;
+        height: 580px;
     }
-    
 
-    .form-container{
+
+    .container__add-project .form-container {
         flex-direction: column-reverse;
         justify-content: start;
+        height: 100%;
     }
 
-    .container__input{
+    .container__add-project .container__input {
         width: 100%;
         height: 200px;
     }
 
-    .container__img{
+    .container__add-project .container__img {
         width: 100%;
     }
 
-    #description{
+    .container__add-project #description {
         height: 60px;
     }
 
-    .text{
+    .container__add-project .text {
         margin: 5% 0;
     }
 
-    .input-container{
+    .container__add-project .input-container {
         height: 150px;
     }
 
-    .additional-content {
+    .container__add-project .additional-content {
         top: 20%;
     }
 
-    .additional-content .titles{
+    .container__add-project .additional-content .titles {
         padding-left: 2px;
     }
 
-    .buttons{
+    .container__add-project .buttons {
         width: 100%;
     }
 }
 
-@media screen and (min-width: 660px){
-    .container__add-project{
-        width: 600px;
+@media screen and (min-width: 661px)and (max-width: 700px){
+    .container__add-project {
+        left: 20%;
+        width: 300px;
+        height: 550px;
+    }
+
+    .container__add-project .form-container {
+        flex-direction: column-reverse;
+        justify-content: start;
+    }
+
+    .container__add-project .container__input {
+        width: 100%;
+        height: 200px;
+    }
+
+    .container__add-project .container__img {
+        width: 80%;
+        height: auto;
+    }
+
+    .container__add-project #description {
+        height: 60px;
+    }
+
+    .container__add-project .text {
+        margin: 5% 0;
+    }
+
+    .container__add-project .input-container {
+        height: 150px;
+    }
+
+    .container__add-project .additional-content {
+        top: 20%;
+    }
+
+    .container__add-project .additional-content .titles {
+        padding-left: 2px;
+    }
+
+    .container__add-project .buttons {
+        width: 100%;
     }
 }

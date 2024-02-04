@@ -1,0 +1,60 @@
+#container__update-project .additional-content {
+    left: 5%;
+    top: 20%;
+}
+
+#container__update-project .additional-content img {
+    width: 50%;
+    height: 50%;
+}
+
+@media screen and (max-width: 661px) {
+    #container__update-project {
+        height: 560px;
+        max-width: 70%;
+        padding: 20px 20px 0 20px;
+        left: 15%;
+    }
+
+    #container__update-project .form-container {
+        flex-direction: column-reverse;
+        justify-content: start;
+    }
+
+    #container__update-project .container__input {
+        width: 100%;
+    }
+
+    #container__update-project .container__img {
+        width: 100%;
+    }
+
+    #container__update-project #description {
+        height: 60px;
+    }
+
+    #container__update-project .text {
+        margin: 4% 0;
+    }
+
+    #container__update-project .input-container {
+        height: 180px;
+    }
+
+    #container__update-project .additional-content {
+        left: 5%;
+        top: 20%;
+    }
+
+    #container__update-project .additional-content img {
+        width: 60px;
+    }
+
+    #container__update-project .additional-content .titles {
+        padding-left: 2px;
+    }
+
+    #container__update-project .buttons {
+        width: 100%;
+    }
+}
