@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0f251f1c56.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/portview.css">
+    <title>Descobrir</title>
+</head>
+
+<body>
+
+    <header id="cabecalho">
+
+        <div id="cabecalho_esquerdo">
+            <img id="logo_orange" src="../assets/logo_orange.svg" alt="Logo Orange Portfólio">
+            <button class="hamburger-menu">
+
+                <i class="fas fa-bars"></i>
+
+            </button>
+            <nav id="menu">
+                <ul class="flex-box-space-between">
+                    <a href="">
+                        <li>Meus projetos</li>
+                    </a>
+                    <a href="">
+                        <li>Descobrir</li>
+                    </a>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="box-profile" class="flex-box-space-between">
+            <img id="user-avatar" src="../assets/user_avatar.svg" alt="Avatar Usuário">
+            <img id="icon_notification" src="../assets/icon_notification.svg" alt="Ícone de Notificações">
+        </div>
+
+    </header>
+
+    <main class="flex-box-space-between">
+
+        <div id="principal_card">
+            <div id="user-data">
+                <div id="principal-text">Junte-se à comunidade de inovação, inspiração e descobertas, transformando experiências em conexões inesquecíveis</div>
+            </div>
+        </div>
+
+    </main>
+
+        <div id="search_project">
+            <label for="search_project_name" id="search_label">Buscar tags</label>
+            <input type="text" id="search_project_name" name="name_project" size="20" />
+        </div>
+
+    <aside class="grid-container">
+        <div class="container-project-user">
+            <article class="article-class">
+              <img id=modal-button-image class="image-desc"src="../assets/port1.png" alt="Descrição da imagem">
+            </article>
+            <div class="name-image">
+                <img class="user-photo" src="../assets/perfil2.png" alt="Foto Usuário">
+                <h1 class="user-name">Enzo Martin • 02/24</h1>
+            </div>
+            <div class="button-container">
+                <button class="button-sup">UX</button>
+                <button class="button-sup">Web</button>
+            </div>
+        </div>
+
+        <div class="container-project-user">
+            <a href="" target="_blank">
+               <article>
+                <img class="image-desc"src="../assets/port(3).png" alt="Descrição da imagem">
+               </article>
+               </a>
+               <div class="name-image">
+                   <img class="user-photo" src="../assets/perfil3.png" alt="Foto Usuário">
+                   <h1 class="user-name">Bianca Martin • 12/23</h1>
+               </div>
+               <div class="button-container">
+                <button class="button-sup">UX</button>
+                <button class="button-sup">Web</button>
+            </div>
+           </div>
+
+           <div class="container-project-user">
+            <a href="" target="_blank">
+               <article>
+                    <img class="image-desc"src="../assets/port2.png" alt="Descrição da imagem">
+               </article>
+               </a>
+               <div class="name-image">
+                   <img class="user-photo" src="../assets/carolina valentim.png" alt="Foto Usuário">
+                   <h1 class="user-name">Alicia A. • 02/24</h1>
+               </div>
+               <div class="button-container">
+                <button class="button-sup">UX</button>
+                <button class="button-sup">Web</button>
+            </div>
+           </div>
+
+        <div class="container-project-user">
+         <a href="" target="_blank">
+            <article>
+                <img class="image-desc"src="../assets/port3.png" alt="Descrição da imagem">
+            </article>
+            </a>
+            <div class="name-image">
+                <img class="user-photo" src="../assets/Profile-Image.png" alt="Foto Usuário">
+                <h1 class="user-name">Carol Valentin • 02/24</h1>
+            </div>
+            <div class="button-container">
+                <button class="button-sup">UX</button>
+                <button class="button-sup">Web</button>
+            </div>
+        </div>
+    </aside>
+
+    <dialog>
+
+        <iframe src="./modal-desk.html"></iframe>
+
+    </dialog>
+    <script src="./js/portViewScripts.js"></script>
+</body>
+
+</html>
