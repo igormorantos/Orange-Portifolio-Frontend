@@ -81,7 +81,14 @@ form.addEventListener('submit', evento => {
     } else {
         console.log(dataUser)
 
-        sendDataToOtherRoute(dataUser)
+        const formatado = {
+          firstName: dataUser.firstName,
+          lastName: dataUser.lastName,
+          email: dataUser.email,
+          password: dataUser.password
+        }
+        sendDataToOtherRoute(formatado)
+        console.log(formatado, "foi formatado!!")
         return response.json({mensagem: 'Primeiro Acesso do Usuario'})
     }
   }
