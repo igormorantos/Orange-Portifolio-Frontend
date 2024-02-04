@@ -40,6 +40,7 @@ form.addEventListener('submit', evento => {
         })
         .then(data => {
             // se autenticação for bem-sucedida, redireciona para usuarios.html
+            console.log(data)
             //window.location = "../../usuarios.html";
         })
         .catch(error => {
