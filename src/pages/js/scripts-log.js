@@ -39,9 +39,10 @@ form.addEventListener('submit', evento => {
             }
         })
         .then(data => {
-            // se autenticação for bem-sucedida, redireciona para usuarios.html
-            console.log(data)
-            //window.location = "../../usuarios.html";
+          console.log(data, "Login bem sucedido")
+          sessionStorage.setItem('data', JSON.stringify(data));
+          window.location = "../pages/portfolio.html";
+          return response.json(data);
         })
         .catch(error => {
             // exibe a mensagem de erro em caso de falha na autenticação
