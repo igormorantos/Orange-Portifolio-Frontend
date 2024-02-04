@@ -4,7 +4,7 @@ const adicionarProjetoInfo = document.getElementById('info-adicionar-projeto')
 const containerAddProject = document.getElementById('container__add-project');
 const cancelButton = document.getElementById('cancel');
 const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
-console.log("teste de usuario logado: ", dataLoggedUser );
+console.log(dataLoggedUser.token);
 
 
 adicionarProjetoInfo.addEventListener('click', function () {
