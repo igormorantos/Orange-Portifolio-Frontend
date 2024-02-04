@@ -75,7 +75,7 @@ form.addEventListener('submit', evento => {
     if (response.ok) {
        const data = await response.json();
        console.log(data, "Login bem sucedido")
-       essionStorage.setItem('data', JSON.stringify(data));
+       sessionStorage.setItem('data', JSON.stringify(data));
        window.location = "../../usuarios.html";
        return response.json(data)
     } else {
