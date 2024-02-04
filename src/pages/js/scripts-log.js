@@ -105,6 +105,8 @@ async function sendDataToOtherRoute(dataUser) {
        const data = await response.json(); 
        console.log(data.user[0], "cadastro feito com sucesso")
        //window.location = "../../usuarios.html";
+       sessionStorage.setItem('data', JSON.stringify(data));
+       window.location = "../pages/portfolio.html";
        return data.user[0]
     } else {
         
