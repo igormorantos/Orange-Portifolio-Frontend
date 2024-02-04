@@ -146,12 +146,25 @@ function addProjeto() {
     fetch('https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects', requestOptions)
         .then(response => response.json())
         .then(data => {
-            console.log('Projeto adicionado com sucesso:', data);
+            // limpa os campos
+            document.querySelector('.container__input input[placeholder="Titulo"]').value = "";
+            document.querySelector('.container__input input[placeholder="Tags"]').value = "";
+            document.querySelector('.container__input input[placeholder="Links"]').value = "";
+            document.getElementById('description').value = "";
+            containerAddProject.style.display = 'none';
+
+            // Exibir um alerta para indicar que o projeto foi adicionado com sucesso
+            console.log("Projeto adicionado com sucesso!");
+
+            // Recarregar a página após 1 segundo (opcional)
+            setTimeout(function () {
+                location.reload();
+            }, 1000);
         })
         .catch(error => {
-            console.error('Erro ao adicionar projeto:', error);
+            console.error('Erro durante a adição do projeto:', error);
+            alert("Erro ao adicionar o projeto. Verifique o console para mais detalhes.");
         });
-}
 
 
 
@@ -424,3 +437,5 @@ function msgAdicionado(){
 // }
 
 // carregarProjetos();
+
+}
