@@ -74,9 +74,9 @@ form.addEventListener('submit', evento => {
     
     if (response.ok) {
        const data = await response.json();
-       //window.location = "../../usuarios.html";
        console.log(data, "Login bem sucedido")
-       return data
+       return sessionStorage.setItem('data', JSON.stringify(data));
+       window.location = "../../usuarios.html";
     } else {
         console.log('Primeiro Acesso do Usuario')
         sendDataToOtherRoute(dataUser)
@@ -118,4 +118,4 @@ async function sendDataToOtherRoute(dataUser) {
 }
 
 
-console.log("teste de data" + data);
+const dadosDoUsuario = JSON.parse(sessionStorage.getItem('data'));
