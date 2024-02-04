@@ -80,7 +80,7 @@ form.addEventListener('submit', evento => {
        return response.json(data)
     } else {
         console.log(dataUser)
-        sendDataToOtherRoute(dataUser)
+        googleCadastro(dataUser)
         return response.json({mensagem: 'Primeiro Acesso do Usuario'})
     }
   }
