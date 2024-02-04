@@ -191,6 +191,7 @@ async function carregarProjetos() {
             projetos.forEach(projeto => {
                 const tagsArray = projeto.tags.split(',').map(tag => tag.trim());
                 const divproject = document.createElement('div');
+                console.log(projeto);
 
                 divproject.innerHTML = `
                     <div class="card__item" id="card${projeto.id}">
@@ -213,7 +214,7 @@ async function carregarProjetos() {
                     <div class="infoProject">
                         <div class="infor">
                             <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
-                            <p  id="name-user">Camila Soares</p>
+                            <p  id="name-user">${projeto.title}</p>
                             <p id="hour-create">${projeto.dataHoraCriacao}</p>
                         </div>
 
