@@ -113,6 +113,7 @@ async function sendDataToOtherRoute(dataUser) {
     }
   }
   catch(error){
+    console.log(error.message)
     massegeValid.style.display = "flex";
     massegeValid.style.backgroundColor = '#ee483ca5';
     massege.textContent = error;
