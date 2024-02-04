@@ -348,7 +348,7 @@ async function carregarProjetos() {
     const projectsContainer = document.querySelector('.projects');
 
     try {
-        const response = await fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects${dataLoggedUser.usuario.id}`);
+        const response = await fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/${dataLoggedUser.usuario.id}`);
 
         // verifica se foi bem sucedido
         if (!response.ok) {
