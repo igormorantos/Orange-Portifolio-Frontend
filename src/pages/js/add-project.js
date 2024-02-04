@@ -188,9 +188,7 @@ async function carregarProjetos() {
                 console.error('Erro ao adicionar projeto:', error);
             });
     
-
-        const projetos = await response.json();
-        console.log(projetos)
+           const projetos = data;
 
         projectsContainer.innerHTML = '';
 
