@@ -4,8 +4,13 @@ const adicionarProjetoInfo = document.getElementById('info-adicionar-projeto')
 const containerAddProject = document.getElementById('container__add-project');
 const cancelButton = document.getElementById('cancel');
 
+
 const api = 'https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com';
 
+
+
+const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
+console.log(dataLoggedUser)
 
 adicionarProjetoInfo.addEventListener('click', function () {
     if (containerAddProject.style.display === 'none') {
@@ -137,8 +142,10 @@ function addProjeto() {
         tags: tags,
         link: links,
         description: descricao,
+
         coverphoto: imgUrl,
-        fk_iduser: 15
+        fk_iduser: dataLoggedUser.usuario.id
+
     };
 
    
@@ -146,7 +153,7 @@ function addProjeto() {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsImlhdCI6MTcwNjk5NjU1MSwiZXhwIjoxNzA3MDI1MzUxfQ.e2pvGANAR6-0reOewmN1EDVx5Vka-GFN_-VFUXbkYqk',
+            'Authorization': 'Bearer ' +  dataLoggedUser.token,
         },
         body: JSON.stringify(projeto),
     };
@@ -155,12 +162,25 @@ function addProjeto() {
     fetch('https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects', requestOptions)
         .then(response => response.json())
         .then(data => {
-            console.log('Projeto adicionado com sucesso:', data);
+            // limpa os campos
+            document.querySelector('.container__input input[placeholder="Titulo"]').value = "";
+            document.querySelector('.container__input input[placeholder="Tags"]').value = "";
+            document.querySelector('.container__input input[placeholder="Links"]').value = "";
+            document.getElementById('description').value = "";
+            containerAddProject.style.display = 'none';
+
+            // Exibir um alerta para indicar que o projeto foi adicionado com sucesso
+            console.log("Projeto adicionado com sucesso!");
+
+            // Recarregar a página após 1 segundo (opcional)
+            setTimeout(function () {
+                location.reload();
+            }, 1000);
         })
         .catch(error => {
-            console.error('Erro ao adicionar projeto:', error);
+            console.error('Erro durante a adição do projeto:', error);
+            alert("Erro ao adicionar o projeto. Verifique o console para mais detalhes.");
         });
-}
 
 
 
@@ -441,3 +461,7 @@ async function carregarProjetos() {
 }
 
 carregarProjetos();
+
+
+}
+

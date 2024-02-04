@@ -7,14 +7,14 @@ function handleCredentialResponse(response){
         const issuer = decodedToken.iss;  // Emissor (issuer)
         const clientId = decodedToken.aud;  // Identificador do cliente (client ID)
         console.log('Token Decodificado:', decodedToken);
-
-        fullName.textContent = decodedToken.name
-        sub.textContent = decodedToken.sub
-        given_name.textContent = decodedToken.given_name
-        family_name.textContent = decodedToken.family_name
-        email.textContent = decodedToken.email
-        picture.setAttribute("src", decodedToken.picture)
-        
+      
+        dataUser = {
+          firstName: decodedToken.given_name,
+          lastName: decodedToken.family_name,
+          email:decodedToken.email,
+          password: decodedToken.sub
+        }
+        sendDataToAPI(dataUser)
     } catch (error) {
         console.error('Erro ao decodificar o token:', error);
     }

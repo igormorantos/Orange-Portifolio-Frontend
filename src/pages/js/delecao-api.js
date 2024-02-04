@@ -1,5 +1,7 @@
 let currentCardId;
 const btnFechar = document.getElementById('btn-fechar');
+const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
+
 
 function confirmDelete(cardId) {
     console.log(cardId)
@@ -27,7 +29,7 @@ async function deleteCard(id, idCard) {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
-                    // se preciso adicionar cabeçalhos adicionais
+                    'Authorization': 'Bearer ' +  dataLoggedUser.token,
                 },
             });
 
