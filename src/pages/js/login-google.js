@@ -14,6 +14,8 @@ function handleCredentialResponse(response){
           email:decodedToken.email,
           password: decodedToken.sub
         }
+        const PP = decodedToken.picture
+        sessionStorage.setItem('profilePhoto', JSON.stringify(PP));
         sendDataToAPI(dataUser)
     } catch (error) {
         console.error('Erro ao decodificar o token:', error);
