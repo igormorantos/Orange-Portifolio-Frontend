@@ -183,7 +183,7 @@ async function carregarProjetos() {
             const data = await response.json();
     
            const projetos = data
-           console.log("data funcinou" + projetos)
+           console.log("data funcinou" + data)
 
         projectsContainer.innerHTML = '';
 
