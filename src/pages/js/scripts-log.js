@@ -16,8 +16,8 @@ form.addEventListener('submit', evento => {
 
 
     const emailStandard = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (emailStandard.test(email) && password.length >= 8) {
+    //emailStandard.test(email) && password.length >= 4
+    if (1 == 1) {
         
         const valuesInputs = {
             email: email,
@@ -113,28 +113,4 @@ async function sendDataToOtherRoute(dataUser) {
     massegeValid.style.backgroundColor = '#ee483ca5';
     massege.textContent = error;
   }
-}
-
-async function googleCadastro(dataUser) {
-  try{
-  const response = await fetch('https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/add', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(dataUser),
-  })
-  if (response.ok) {
-    const data = await response.json(); 
-    console.log(data.user[0], "cadastro feito com sucesso")
-    sessionStorage.setItem('data', JSON.stringify(data));
-    window.location = "../pages/portfolio.html";
-    return data.user[0]
-  } else {
-    return response.json({mesnagem: "erro de cadastro"})
-  }
-}
-catch(error){
-  console.log(error)
-}
 }
