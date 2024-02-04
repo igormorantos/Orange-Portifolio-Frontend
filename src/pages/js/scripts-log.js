@@ -116,4 +116,5 @@ async function sendDataToOtherRoute(dataUser) {
   }
 }
 
+console.log("saiu::::" + data)
 
