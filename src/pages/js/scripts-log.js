@@ -91,8 +91,6 @@ form.addEventListener('submit', evento => {
 }
 
 
-
-
 async function sendDataToOtherRoute(dataUser) {
     try{
     const response = await fetch('https://orange-portifolio-api-a03fcc01e1a7.herokuapp.com/add', {
