@@ -5,6 +5,8 @@ const containerAddProject = document.getElementById('container__add-project');
 const cancelButton = document.getElementById('cancel');
 const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
 console.log(dataLoggedUser)
+const userNamePrincipal = document.getElementById('name');
+userNamePrincipal.textContent = "igor moreira"
 
 adicionarProjetoInfo.addEventListener('click', function () {
     if (containerAddProject.style.display === 'none') {
