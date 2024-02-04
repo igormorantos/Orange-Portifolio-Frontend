@@ -3,7 +3,7 @@ const addProject = document.getElementById('add-project');
 const adicionarProjetoInfo = document.getElementById('info-adicionar-projeto')
 const containerAddProject = document.getElementById('container__add-project');
 const cancelButton = document.getElementById('cancel');
-const dataLoggedUser = require('./dataUser');
+import dataLoggedUser from './dataUser';
 console.log(dataLoggedUser);
 
 
