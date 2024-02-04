@@ -154,13 +154,13 @@ function addProjeto() {
         });
 }
 
-function transformData(data){
-    const data = new Date(data);
+function transformData(dataCriacao){
+    const data = new Date(dataCriacao);
     const dataFormatada = data.toLocaleDateString('pt-BR', {
     day: '2-digit',
     month: '2-digit',
 });
-
+    return dataFormatada
 }
 
 function msgAdicionado(){
@@ -198,7 +198,11 @@ async function carregarProjetos() {
             projetos.forEach(projeto => {
                 const tagsArray = projeto.tags.split(',').map(tag => tag.trim());
                 const divproject = document.createElement('div');
-                console.log(transformData(projeto.createdAt))
+
+               const dataCriada = transformData(projeto.createdAt)
+                console.log(dataCriada)
+
+
                 divproject.innerHTML = `
                     <div class="card__item" id="card${projeto.id}">
                     <div class="btn__options">
