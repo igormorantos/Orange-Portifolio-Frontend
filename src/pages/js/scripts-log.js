@@ -100,7 +100,7 @@ async function sendDataToOtherRoute(dataUser) {
       },
       body: JSON.stringify(dataUser),
     })
-    console.log('testando')
+    console.log(response)
     if (response.ok) {
        const data = await response.json(); 
        console.log(data.user[0], "cadastro feito com sucesso")
