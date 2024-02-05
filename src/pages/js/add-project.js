@@ -151,13 +151,7 @@ async function carregarProjetos() {
             
             if (response.ok) {
                 const projetos = await response.json();
-                console.log(projetos)
-               return projetos
-            } else {
-                console.log('não retornou')
-                return response.json({mensagem: 'não retornou nada'})
-            }          
-            console.log('4')
+                
         projectsContainer.innerHTML = '';
 
         // se existir projetos cadastrados:
@@ -221,6 +215,8 @@ async function carregarProjetos() {
 
                 projectsContainer.appendChild(divproject);
             });
+            console.log(projetos)
+               return projetos    
         } else {
                 // se não tiver projetos cadastrados mostra a div de adicionar
                 const noProjectsMessage = document.createElement('button');
@@ -260,9 +256,10 @@ async function carregarProjetos() {
                 })
             }
         }
-        catch (error) {
+    }catch (error) {
         console.error('Erro ao carregar projetos:', error);
     }
 }
+
 
 carregarProjetos();
