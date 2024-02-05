@@ -178,8 +178,8 @@ async function carregarProjetos() {
 
                    <div class="infoProject">
                        <div class="infor">
-                           <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
-                           <p  id="name-user">Camila Soares</p>
+                           <img src="${projeto.link}"  alt="sua foto de perfil">
+                           <p  id="name-user">${dataLoggedUser.usuario.firstName} ${dataLoggedUser.usuario.lastName}</p>
                            <p id="hour-create">${projeto.dataHoraCriacao}</p>
                        </div>
 
