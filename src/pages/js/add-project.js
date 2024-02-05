@@ -66,51 +66,6 @@ function gerarIdAleatorio() {
     return Math.floor(Math.random() * 101);
 }
 
-// 4 - adiciona o projeto
-// function addProjeto() {
-//     // Obter os valores dos campos do formulário
-//     var titulo = document.querySelector('.container__input input[placeholder="Titulo"]').value;
-//     var tags = document.querySelector('.container__input input[placeholder="Tags"]').value;
-//     var links = document.querySelector('.container__input input[placeholder="Links"]').value;
-//     var descricao = document.getElementById('description').value;
-//     const imageInput = document.getElementById('imageInput');
-//     const imagePath = URL.createObjectURL(imageInput.files[0]);
-//     const dataCriacao = obterDataAtual();
-//     const id = gerarIdAleatorio()
-
-//     if (titulo === "" || tags === "" || links === "" || descricao === "") {
-//         alert("Preencha todos os campos obrigatórios (Título, Tags, Links e Descrição)!");
-//         return;
-//     }
-
-//     // criar um objeto representando o projeto
-//     var projeto = {
-//         id: id,
-//         titulo: titulo,
-//         tags: tags,
-//         links: links,
-//         descricao: descricao,
-//         imageInput: imagePath,
-//         dataHoraCriacao: dataCriacao
-//     };
-
-//     // verifica se já existem projetos armazenados no localStorage
-//     var projetos = JSON.parse(localStorage.getItem('projetos')) || [];
-
-//     // adicionar o novo projeto à lista de projetoss
-//     projetos.push(projeto);
-
-//     // armazena a lista atualizada no localStorage
-//     localStorage.setItem('projetos', JSON.stringify(projetos));
-
-//     containerAddProject.style.display = 'none';
-
-//     document.getElementById('cad-sucess').style.display = 'flex';
-//     setTimeout(function () {
-//         location.reload();
-//     }, 4000);
-// }
-
 
 function addProjeto() {
     // Obter os valores dos campos do formulário
@@ -185,19 +140,21 @@ async function carregarProjetos() {
     const projectsContainer = document.querySelector('.projects');
 
     try {
-
-        var requestOptions = {
-            method: 'GET',
-            headers: {
+            const response = await fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/${dataLoggedUser.usuario.id}`, {
+              method: 'GET',
+              headers: {
                 'Authorization': 'Bearer ' +  dataLoggedUser.token,
-            }
-        };
-    
-        // url da api
-        const response = await fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/${dataLoggedUser.usuario.id}`, requestOptions)
-            const projetos = await response.json();
-    
-           
+              },
+            })
+            
+            if (response.ok) {
+                const projetos = await response.json();
+                console.log(projetos)
+               return projetos
+            } else {
+                console.log('não retornou')
+                return response.json({mensagem: 'não retornou nada'})
+            }          
 
         projectsContainer.innerHTML = '';
 
