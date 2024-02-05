@@ -1,6 +1,5 @@
 let currentCardId;
 const btnFechar = document.getElementById('btn-fechar');
-const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
 console.log(dataLoggedUser.usuario)
 
 function confirmDelete(cardId) {
