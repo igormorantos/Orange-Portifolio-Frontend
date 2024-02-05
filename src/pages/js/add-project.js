@@ -7,9 +7,10 @@ const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
 const userNamePrincipal = document.getElementById('name');
 nomeCompleto = dataLoggedUser.usuario.firstName + ' ' + dataLoggedUser.usuario.lastName
 userNamePrincipal.textContent = nomeCompleto
+console.log(dataLoggedUser.token);
 
 adicionarProjetoInfo.addEventListener('click', function () {
-    if (containerAddProject.style.display === 'none') {
+    if (containerAddProject.style.display === 'none') {''
         containerAddProject.style.display = 'flex';
     } else {
         containerAddProject.style.display = 'none';
@@ -65,51 +66,6 @@ function gerarIdAleatorio() {
     return Math.floor(Math.random() * 101);
 }
 
-// 4 - adiciona o projeto
-// function addProjeto() {
-//     // Obter os valores dos campos do formulário
-//     var titulo = document.querySelector('.container__input input[placeholder="Titulo"]').value;
-//     var tags = document.querySelector('.container__input input[placeholder="Tags"]').value;
-//     var links = document.querySelector('.container__input input[placeholder="Links"]').value;
-//     var descricao = document.getElementById('description').value;
-//     const imageInput = document.getElementById('imageInput');
-//     const imagePath = URL.createObjectURL(imageInput.files[0]);
-//     const dataCriacao = obterDataAtual();
-//     const id = gerarIdAleatorio()
-
-//     if (titulo === "" || tags === "" || links === "" || descricao === "") {
-//         alert("Preencha todos os campos obrigatórios (Título, Tags, Links e Descrição)!");
-//         return;
-//     }
-
-//     // criar um objeto representando o projeto
-//     var projeto = {
-//         id: id,
-//         titulo: titulo,
-//         tags: tags,
-//         links: links,
-//         descricao: descricao,
-//         imageInput: imagePath,
-//         dataHoraCriacao: dataCriacao
-//     };
-
-//     // verifica se já existem projetos armazenados no localStorage
-//     var projetos = JSON.parse(localStorage.getItem('projetos')) || [];
-
-//     // adicionar o novo projeto à lista de projetoss
-//     projetos.push(projeto);
-
-//     // armazena a lista atualizada no localStorage
-//     localStorage.setItem('projetos', JSON.stringify(projetos));
-
-//     containerAddProject.style.display = 'none';
-
-//     document.getElementById('cad-sucess').style.display = 'flex';
-//     setTimeout(function () {
-//         location.reload();
-//     }, 4000);
-// }
-
 
 function addProjeto() {
     // Obter os valores dos campos do formulário
@@ -150,6 +106,11 @@ function addProjeto() {
         .then(response => response.json())
         .then(data => {
             console.log('Projeto adicionado com sucesso:', data);
+            const msgProjetoCadastrado = document.getElementById('cad-sucess');
+            msgProjetoCadastrado.style.display = "flex";
+            setTimeout(function () {
+                location.reload();
+            }, 3000);
         })
         .catch(error => {
             console.error('Erro ao adicionar projeto:', error);
@@ -176,23 +137,27 @@ function msgAdicionado(){
 // carrega os projetos do banco
 //---------------------------------------------------------------------------------------
 async function carregarProjetos() {
+    console.log('1')
     const projectsContainer = document.querySelector('.projects');
-
+    console.log('2')
     try {
-
-        var requestOptions = {
-            method: 'GET',
-            headers: {
+        console.log('3')
+            const response = await fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/${dataLoggedUser.usuario.id}`, {
+              method: 'GET',
+              headers: {
                 'Authorization': 'Bearer ' +  dataLoggedUser.token,
-            }
-        };
-    
-        // url da api
-        const response = await fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/${dataLoggedUser.usuario.id}`, requestOptions)
-            const projetos = await response.json();
-    
-           
-
+              },
+            })
+            
+            if (response.ok) {
+                const projetos = await response.json();
+                console.log(projetos)
+               return projetos
+            } else {
+                console.log('não retornou')
+                return response.json({mensagem: 'não retornou nada'})
+            }          
+            console.log('4')
         projectsContainer.innerHTML = '';
 
         // se existir projetos cadastrados:
@@ -256,9 +221,47 @@ async function carregarProjetos() {
 
                 projectsContainer.appendChild(divproject);
             });
+        } else {
+                // se não tiver projetos cadastrados mostra a div de adicionar
+                const noProjectsMessage = document.createElement('button');
+                noProjectsMessage.classList.add('cardproject');
+                noProjectsMessage.id = 'add-project';
+        
+                const noProjectsImage = document.createElement('img');
+                noProjectsImage.src = '../assets/collections.png';
+                noProjectsImage.alt = 'Icone de arquivos';
+                noProjectsMessage.appendChild(noProjectsImage);
+        
+                const noProjectsTitles = document.createElement('div');
+                noProjectsTitles.classList.add('titles');
+        
+                const noProjectsParagraph1 = document.createElement('p');
+                noProjectsParagraph1.textContent = 'Adicione seu primeiro projeto';
+                noProjectsTitles.appendChild(noProjectsParagraph1);
+        
+                const noProjectsParagraph2 = document.createElement('p');
+                noProjectsParagraph2.classList.add('titlestitle');
+                noProjectsParagraph2.textContent = 'Compartilhe seu talento com milhares de pessoas';
+                noProjectsTitles.appendChild(noProjectsParagraph2);
+        
+                noProjectsMessage.appendChild(noProjectsTitles);
+        
+                // adiciona o botão à lista de projetos
+                projectsContainer.appendChild(noProjectsMessage);
+        
+                const addProject = document.getElementById('add-project');
+                // mostra o modal
+                addProject.addEventListener('click', function () {
+                    if (containerAddProject.style.display === 'none') {
+                        containerAddProject.style.display = 'flex';
+                    } else {
+                        containerAddProject.style.display = 'none';
+                    }
+                })
+            }
         }
-    } catch (error) {
-        console.error('Erro ao carregar projetos:', error.message);
+        catch (error) {
+        console.error('Erro ao carregar projetos:', error);
     }
 }
 
