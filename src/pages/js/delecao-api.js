@@ -1,3 +1,13 @@
+function showOptions(optionsId) {
+    const options = document.getElementById(optionsId);
+
+    if (options.style.display === 'none') {
+        options.style.display = 'flex';
+    } else {
+        options.style.display = 'none';
+    }
+}
+
 let currentCardId;
 const btnFechar = document.getElementById('btn-fechar');
 console.log(dataLoggedUser.usuario.id)
