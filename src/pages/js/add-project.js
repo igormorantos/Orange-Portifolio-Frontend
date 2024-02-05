@@ -174,13 +174,13 @@ async function carregarProjetos() {
                        <button class="btn__option" id="excluir" onclick="confirmDelete('card${projeto.id}')">Excluir</button>
                    </div>
 
-                       <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
+                       <img src="../assets/port1.png" alt="sua foto de perfil">
 
                    <div class="infoProject">
                        <div class="infor">
-                           <img src="${projeto.link}"  alt="sua foto de perfil">
+                           <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
                            <p  id="name-user">${dataLoggedUser.usuario.firstName} ${dataLoggedUser.usuario.lastName}</p>
-                           <p id="hour-create">${projeto.dataHoraCriacao}</p>
+                           <p id="hour-create">23/04</p>
                        </div>
 
                        <div class="tags">
