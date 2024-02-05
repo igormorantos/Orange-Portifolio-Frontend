@@ -8,9 +8,9 @@ function updateProject() {
     const imageInput = document.getElementById('imageUpdate');
     const imagePath = URL.createObjectURL(imageInput.files[0]);
     const dataCriacao = obterDataAtual();
-
+    console.log(titulo + tags + links + descricao + 'antes')
     if (titulo === "" || tags === "" || links === "" || descricao === "") {
-        alert(titulo + tags + links + descricao);
+        console.log(titulo + tags + links + descricao + 'depois')
         return;
     }
 
