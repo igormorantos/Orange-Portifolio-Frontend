@@ -152,6 +152,9 @@ function addProjeto() {
             console.log('Projeto adicionado com sucesso:', data);
             const msgProjetoCadastrado = document.getElementById('cad-sucess');
             msgProjetoCadastrado.style.display = "flex";
+            setTimeout(function () {
+                location.reload();
+            }, 3000);
         })
         .catch(error => {
             console.error('Erro ao adicionar projeto:', error);
