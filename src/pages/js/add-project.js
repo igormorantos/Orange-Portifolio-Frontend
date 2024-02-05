@@ -302,7 +302,7 @@ async function carregarProjetos() {
             }
         }
         catch (error) {
-        console.error('Erro ao carregar projetos:', error.message);
+        console.error('Erro ao carregar projetos:', error);
     }
 }
 
