@@ -7,10 +7,10 @@ const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
 const userNamePrincipal = document.getElementById('name');
 nomeCompleto = dataLoggedUser.usuario.firstName + ' ' + dataLoggedUser.usuario.lastName
 userNamePrincipal.textContent = nomeCompleto
-console.log(dataLoggedUser);
+console.log(dataLoggedUser.token);
 
 adicionarProjetoInfo.addEventListener('click', function () {
-    if (containerAddProject.style.display === 'none') {
+    if (containerAddProject.style.display === 'none') {''
         containerAddProject.style.display = 'flex';
     } else {
         containerAddProject.style.display = 'none';
