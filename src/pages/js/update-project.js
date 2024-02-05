@@ -15,7 +15,7 @@ function updateProject() {
     }*/
 
     var dadosAtualizados = {
-        titulo: titulo,
+        title: titulo,
         tags: tags,
         link: links,
         description: descricao,
@@ -24,26 +24,19 @@ function updateProject() {
     };
 
 
-    fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/${id}`, {
-        method: 'PUT', // atualiza 
+    const response = fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/${id}`, {
+        method: 'PATCH', 
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' +  dataLoggedUser.token,
         },
         body: JSON.stringify(dadosAtualizados),
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Erro na solicitação: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            alert("Dados atualizados com sucesso!");
-        })
-        .catch(error => {
-            console.error('Erro durante a atualização dos dados:', error);
-            alert("Erro ao atualizar os dados. Verifique o console para mais detalhes.");
-        });
+       
+    if(response.ok){
+        console.log(dadosAtualizados)
+        return response.status(200).JSON("projeto editado");
+    }
 }
 
 function openUpdate() {
