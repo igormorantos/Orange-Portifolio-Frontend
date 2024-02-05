@@ -9,10 +9,10 @@ function updateProject() {
     const imagePath = URL.createObjectURL(imageInput.files[0]);
     const dataCriacao = obterDataAtual();
 
-    if (titulo === "" || tags === "" || links === "" || descricao === "") {
+   /* if (titulo === "" || tags === "" || links === "" || descricao === "") {
         alert("Por favor, preencha todos os campos obrigatórios.");
         return;
-    }
+    }*/
 
     var dadosAtualizados = {
         titulo: titulo,

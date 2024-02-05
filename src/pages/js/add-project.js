@@ -137,11 +137,8 @@ function msgAdicionado(){
 // carrega os projetos do banco
 //---------------------------------------------------------------------------------------
 async function carregarProjetos() {
-    console.log('1')
     const projectsContainer = document.querySelector('.projects');
-    console.log('2')
     try {
-        console.log('3')
             const response = await fetch(`https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/projects/${dataLoggedUser.usuario.id}`, {
               method: 'GET',
               headers: {
