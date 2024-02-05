@@ -7,6 +7,7 @@ const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
 const userNamePrincipal = document.getElementById('name');
 nomeCompleto = dataLoggedUser.usuario.firstName + ' ' + dataLoggedUser.usuario.lastName
 userNamePrincipal.textContent = nomeCompleto
+console.log(dataLoggedUser);
 
 adicionarProjetoInfo.addEventListener('click', function () {
     if (containerAddProject.style.display === 'none') {
