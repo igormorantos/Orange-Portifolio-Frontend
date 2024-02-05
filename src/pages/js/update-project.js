@@ -1,5 +1,4 @@
 const updateModel = document.getElementById('container__update-project');
-const dataprojects = JSON.parse(sessionStorage.getItem('projetos'));
 
 function updateProject() {
     var titulo = document.querySelector('.container__input input[placeholder="Titulo"]').value;
@@ -35,7 +34,7 @@ function updateProject() {
     })
        
     if(response.ok){
-        console.log(dadosAtualizados)
+        console.log()
         return response.status(200).JSON("projeto editado");
     }
 }
