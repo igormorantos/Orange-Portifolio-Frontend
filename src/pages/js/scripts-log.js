@@ -90,6 +90,7 @@ form.addEventListener('submit', evento => {
   }
 }
 
+
 async function sendDataToOtherRoute(dataUser) {
     try{
     const response = await fetch('https://orange-port-ambiente-teste-566d37c661f3.herokuapp.com/add', {
@@ -99,6 +100,7 @@ async function sendDataToOtherRoute(dataUser) {
       },
       body: JSON.stringify(dataUser),
     })
+    console.log(response)
     if (response.ok) {
        const data = await response.json(); 
        console.log(data.user[0], "cadastro feito com sucesso")
@@ -111,6 +113,7 @@ async function sendDataToOtherRoute(dataUser) {
     }
   }
   catch(error){
+    console.log(error.message)
     massegeValid.style.display = "flex";
     massegeValid.style.backgroundColor = '#ee483ca5';
     massege.textContent = error;

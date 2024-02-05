@@ -1,5 +1,7 @@
 const button = document.getElementById("modal-button-image");
 const modal = document.querySelector("dialog");
+const dataLoggedUser = JSON.parse(sessionStorage.getItem('data'));
+console.log(dataLoggedUser)
 
 button.onclick = function() {
     modal.showModal()
