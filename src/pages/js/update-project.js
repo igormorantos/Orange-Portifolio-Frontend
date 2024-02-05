@@ -10,7 +10,7 @@ function updateProject() {
     const dataCriacao = obterDataAtual();
 
     if (titulo === "" || tags === "" || links === "" || descricao === "") {
-        alert("Por favor, preencha todos os campos obrigatórios.");
+        alert(titulo + tags + links + descricao);
         return;
     }
 
