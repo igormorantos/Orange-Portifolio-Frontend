@@ -161,54 +161,51 @@ async function carregarProjetos() {
 
 
 
-                divproject.innerHTML = `
-                    <div class="card__item" id="card${projeto.id}">
-                    <div class="btn__options">
-                        <button class="btn__options--btn" onclick="showOptions('options${projeto.id}')">
-                            <i class="fas fa-pen"></i>
-                        </button>
-                    </div>
-                    
+               divproject.innerHTML = `
+               <div class="card__item" id="card${projeto.id}">
+       
+                       <button class="btn__options--btn" onclick="showOptions('options${projeto.id}')">
+                           <i class="fas fa-pen"></i>
+                       </button>
 
-                    <div class="options" id="options${projeto.id}">
-                        <button class="btn__option" id="update" onclick="openUpdate(${projeto.id})">Editar</button>
-                        <button class="btn__option" id="excluir" onclick="confirmDelete('card${projeto.id}')">Excluir</button>
-                    </div>
 
-                    <div class="image-project">
-                        <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
-                    </div>
+                   <div class="options" id="options${projeto.id}">
+                       <button class="btn__option" id="update" onclick="openUpdate()">Editar</button>
+                       <button class="btn__option" id="excluir" onclick="confirmDelete('card${projeto.id}')">Excluir</button>
+                   </div>
 
-                    <div class="infoProject">
-                        <div class="infor">
-                            <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
-                            <p  id="name-user">${dataLoggedUser.usuario.firstName}  ${dataLoggedUser.usuario.lastName}</p>
-                            <p id="hour-create">${dataCriada}</p>
-                        </div>
+                       <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
 
-                        <div class="tags">
-                            <p>${tagsArray[0]}</p>
-                            <p>${tagsArray[1]}</p>
-                        </div>
-                        
-                    </div>
+                   <div class="infoProject">
+                       <div class="infor">
+                           <img src="../assets/Profile-Image.png" alt="sua foto de perfil">
+                           <p  id="name-user">Camila Soares</p>
+                           <p id="hour-create">${projeto.dataHoraCriacao}</p>
+                       </div>
 
-                    <div class="confirm-delete" id="confirmDeletecard${projeto.id}">
-                        <p class="confirm-delete--title">Deseja excluir?</p>
-                        <p class="confirm-delete--text">Se você prosseguir irá excluir o projeto do seu portfólio
-                        </p>
-                        <button class="btn-del-edit color__excluir"
-                            onclick="deleteCard('card${projeto.id}', ${projeto.id})">Excluir</button>
-                        <button class="btn-del-edit" onclick="cancelDelete('card${projeto.id}')">Cancelar</button>
-                    </div>
+                       <div class="tags">
+                           <p>${tagsArray[0]}</p>
+                           <p>${tagsArray[1]}</p>
+                       </div>
 
-                    <div class="confirm-delete deleteSuccess" id="deleteSuccess${projeto.id}">
-                        <p>Projeto deletado com sucesso!</p>
-                        <i class="fas fa-check-circle"></i>
-                        <button class="btn-fechar" id="btn-fechar">Voltar para projetos</button>
-                    </div>
-                </div>
-                `;
+                   </div>
+
+                   <div class="confirm-delete" id="confirmDeletecard${projeto.id}">
+                       <p class="confirm-delete--title">Deseja excluir?</p>
+                       <p class="confirm-delete--text">Se você prosseguir irá excluir o projeto do seu portfólio
+                       </p>
+                       <button class="btn-del-edit color__excluir"
+                           onclick="deleteCard('card${projeto.id}', ${projeto.id})">Excluir</button>
+                       <button class="btn-del-edit" onclick="cancelDelete('card${projeto.id}')">Cancelar</button>
+                   </div>
+
+                   <div class="confirm-delete deleteSuccess" id="deleteSuccess${projeto.id}">
+                       <p>Projeto deletado com sucesso!</p>
+                       <i class="fas fa-check-circle"></i>
+                       <button class="btn-fechar" id="btn-fechar">Voltar para projetos</button>
+                   </div>
+               </div>
+           `;
 
                 projectsContainer.appendChild(divproject);
             });

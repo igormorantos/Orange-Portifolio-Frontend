@@ -3,6 +3,7 @@
 }
 
 .card__item {
+    position: relative;
     height: 100%;
     width: 300px;
     border: none;
@@ -10,34 +11,24 @@
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.38);
     font-weight: 500;
-    border: 1px solid #9e9e9e;
     transition: all .3s ease-out;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 2px solid red;
-}
-.image-project img {
-    margin-left: 25%;
-}
-
-.btn__options {
-    display: flex;
-    justify-content: end;
-    width: 100%;
-    height: 20%;
-    position: relative;
 }
 
 .btn__options--btn {
-    border-top: 3%;
+    position: absolute;
     background-color: #FFCC99;
     border-radius: 50px;
     border: none;
     color: #292929;
     width: 15%;
-    margin: 3% 3% 0;
+    height: 10%;
+    left: 83%;
+    top: 5px;
+
 }
 
 .btn__options--btn:hover {
@@ -53,7 +44,7 @@
 .options {
     position: absolute;
     left: 65%;
-    top: 20%;
+    top: 12%;
     width: 100px;
     height: 75px;
     display: none;
