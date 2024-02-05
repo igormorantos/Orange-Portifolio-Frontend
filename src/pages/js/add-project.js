@@ -174,7 +174,7 @@ async function carregarProjetos() {
                        <button class="btn__option" id="excluir" onclick="confirmDelete('card${projeto.id}')">Excluir</button>
                    </div>
 
-                       <img src="../assets/port1.png" alt="sua foto de perfil">
+                       <img src="../assets/carolina valentim.png" alt="sua foto de perfil">
 
                    <div class="infoProject">
                        <div class="infor">
