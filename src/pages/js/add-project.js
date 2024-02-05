@@ -256,8 +256,46 @@ async function carregarProjetos() {
 
                 projectsContainer.appendChild(divproject);
             });
+        } else {
+                // se não tiver projetos cadastrados mostra a div de adicionar
+                const noProjectsMessage = document.createElement('button');
+                noProjectsMessage.classList.add('cardproject');
+                noProjectsMessage.id = 'add-project';
+        
+                const noProjectsImage = document.createElement('img');
+                noProjectsImage.src = '../assets/collections.png';
+                noProjectsImage.alt = 'Icone de arquivos';
+                noProjectsMessage.appendChild(noProjectsImage);
+        
+                const noProjectsTitles = document.createElement('div');
+                noProjectsTitles.classList.add('titles');
+        
+                const noProjectsParagraph1 = document.createElement('p');
+                noProjectsParagraph1.textContent = 'Adicione seu primeiro projeto';
+                noProjectsTitles.appendChild(noProjectsParagraph1);
+        
+                const noProjectsParagraph2 = document.createElement('p');
+                noProjectsParagraph2.classList.add('titlestitle');
+                noProjectsParagraph2.textContent = 'Compartilhe seu talento com milhares de pessoas';
+                noProjectsTitles.appendChild(noProjectsParagraph2);
+        
+                noProjectsMessage.appendChild(noProjectsTitles);
+        
+                // adiciona o botão à lista de projetos
+                projectsContainer.appendChild(noProjectsMessage);
+        
+                const addProject = document.getElementById('add-project');
+                // mostra o modal
+                addProject.addEventListener('click', function () {
+                    if (containerAddProject.style.display === 'none') {
+                        containerAddProject.style.display = 'flex';
+                    } else {
+                        containerAddProject.style.display = 'none';
+                    }
+                })
+            }
         }
-    } catch (error) {
+        catch (error) {
         console.error('Erro ao carregar projetos:', error.message);
     }
 }
