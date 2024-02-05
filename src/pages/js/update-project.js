@@ -1,4 +1,5 @@
 const updateModel = document.getElementById('container__update-project');
+const dataprojects = JSON.parse(sessionStorage.getItem('projetos'));
 
 function updateProject() {
     var titulo = document.querySelector('.container__input input[placeholder="Titulo"]').value;

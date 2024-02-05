@@ -213,7 +213,8 @@ async function carregarProjetos() {
                 projectsContainer.appendChild(divproject);
             });
             console.log(projetos)
-               return projetos    
+            sessionStorage.setItem('projetos', JSON.stringify(projetos));
+               return projetos
         } else {
                 // se não tiver projetos cadastrados mostra a div de adicionar
                 const noProjectsMessage = document.createElement('button');
